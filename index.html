@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- cloud /date /time -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Windows OS</title>
+</head>
+
+<body>
+
+    <!-- shoutdown video -->
+    <video id="shoutdown" autoplay muted src="./background/shout down.mp4"></video>
+
+    <!-- desk top main screen -->
+    <div class="desktop-screen">
+
+        <!-- refresh -->
+        <div id="refresh"></div>
+
+        <!-- background video -->
+        <video id="backgroundVideo" autoplay muted>
+            <source src="./background/video.webm" type="video/webm" />
+        </video>
+        <!-- music/audio -->
+        <audio id="player" src="./song/Kal Ho Naa Ho - Shahrukh Khan.mp3" controls></audio>
+
+        <!-- ////////////////////////////////////////////////////////////// -->
+        <!-- desktop custom context menu -->
+        <div id="customMenu">
+            <ul>
+                <li id="createFolderOption">
+                    <i class="ri-folder-6-fill"></i>
+                    New Folder
+                </li>
+                <li id="createFileOption">
+                    <i class="ri-file-3-fill"></i>
+                    New File
+                </li>
+
+                <div id="line"></div>
+
+                <li id="refreshOption">
+                    <i class="ri-refresh-line"></i>
+                    Refresh
+                </li>
+                <li id="moreOption">More
+                    <i class="ri-arrow-right-s-fill"></i>
+                </li>
+            </ul>
+        </div>
+        <!-- ////////////////////////////////////////////////////////////// -->
+
+        <!-- ////////////////////////////////////////////////////////////// -->
+        <!-- file context meu -->
+        <div id="fileMenu">
+            <ul>
+                <li id="openOption">
+                    <i class="ri-folder-open-fill"></i>
+                    Open
+                </li>
+                <li id="renameOption">
+                    Rename
+                </li>
+                <div id="line"></div>
+                <li id="cutOption">
+                    <i class="ri-scissors-cut-line"></i>
+                    Cut
+                </li>
+                <li id="copyOption">
+                    <i class="ri-file-copy-fill"></i>
+                    Copy
+                </li>
+                <li id="pasteOption">
+                    Paste
+                </li>
+            </ul>
+        </div>
+        <!-- ////////////////////////////////////////////////////////////// -->
+
+        <!-- ////////////////////////////////////////////////////////////// -->
+        <!-- windows start tab -->
+        <div class="opentab" id="winStartTab">
+            <div class="upper-section">
+                <!-- search -->
+                <div class="win-search">
+                    <i class="ri-search-2-line"></i>
+                    <input type="text" placeholder="Search for app, settings, and documents" />
+                </div>
+                <!-- pinned ttitle -->
+                <div class="pin-text">
+                    <h2>Pinned</h2>
+                    <div class="pin-all">
+                        <p>All</p>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+                </div>
+                <!-- pinned all apps -->
+                <div class="pinned-allapps">
+                    <div class="apps app-edge">
+                        <img src="./icons/edge.svg" alt="">
+                        <span>Edge</span>
+                    </div>
+                    <div class="apps app-photos">
+                        <img src="./icons/photos.svg" alt="">
+                        <span>Photos</span>
+                    </div>
+                    <div class="apps app-setting">
+                        <img src="./icons/setting.svg" alt="">
+                        <span>Setting</span>
+                    </div>
+                    <div class="apps app-calculator">
+                        <img src="./icons/calcy.png" alt="">
+                        <span>Calculator</span>
+                    </div>
+                    <div class="apps app-clock">
+                        <img src="./icons/clock.png" alt="">
+                        <span>clock</span>
+                    </div>
+                    <div class="apps app-notepad">
+                        <img src="./icons/notepad.png" alt="">
+                        <span>Notepad</span>
+                    </div>
+                    <div class="apps app-paint">
+                        <img src="./icons/paint.svg" alt="">
+                        <span>Paint</span>
+                    </div>
+                    <div class="apps app-explore">
+                        <img src="./icons/fileexplore.png" alt="">
+                        <span>File Explorer</span>
+                    </div>
+                    <div class="apps app-film&tv">
+                        <img src="./icons/film&tv.svg" alt="">
+                        <span>Film $ TV</span>
+                    </div>
+                    <div class="apps app-store">
+                        <img src="./icons/microsoftstore.svg" alt="">
+                        <span>Microsoft Store</span>
+                    </div>
+                </div>
+                <!-- recommended -->
+                <div class="recommend-text">
+                    <h2>Recommended</h2>
+                    <div class="pin-all">
+                        <p>More</p>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+                </div>
+                <!-- recommended apps -->
+                <div class="recommend-apps">
+                    <div class="apps app-forza">
+                        <img src="./icons/insta.svg" alt="">
+                        <div class="apps-content">
+                            <span>Instagram</span>
+                            <small>Recently added</small>
+                        </div>
+                    </div>
+                    <div class="apps app-yotube">
+                        <img src="./icons/youtube.svg" alt="">
+                        <div class="apps-content">
+                            <span>YouTube</span>
+                            <small>Frequently used app</small>
+                        </div>
+                    </div>
+                    <div class="apps app-vscode">
+                        <img src="./icons/vscode.svg" alt="">
+                        <div class="apps-content">
+                            <span>VS Code</span>
+                            <small>Frequently used app</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- lower section -->
+            <div class="lower-section">
+                <div class="admin">
+                    <!-- admin -->
+                    <div class="admin-profile">
+                        <img src="./icons/admin-profile.gif" alt="">
+                        <h4>suraj patgar</h4>
+                    </div>
+                    <!-- shortcut tools -->
+                    <div class="shortcut-tools">
+                        <div class="theme">
+                            <div class="theme-icons">
+                                <i class="ri-sun-line" id="themeIcon"></i>
+                            </div>
+                        </div>
+                        <div class="setting-icon">
+                            <i class="ri-settings-3-line"></i>
+                        </div>
+                        <div class="power-icon">
+                            <i class="ri-shut-down-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ////////////////////////////////////////////////////////////// -->
+
+        <!-- notification tab -->
+        <div id="notificationTab">
+            <div id="notifyTopTab">
+                <div id="notifyText">
+                    <p>Notifications</p>
+                    <i class="ri-notification-snooze-line"></i>
+                </div>
+
+                <div id="musicPlayer">
+
+                </div>
+            </div>
+            <div id="notifyDownTab">
+                <div id="day">
+                    <p>Tuesday, 1 July</p>
+                    <i class="ri-arrow-up-s-line"></i>
+                </div>
+                <div id="clock">
+                    <h2>Clock 1</h2>
+                    <p>09:32 Today</p>
+                </div>
+                <div id="focus">
+                    <i class="ri-subtract-fill"></i>
+                    <h2>30 <span>min</span></h2>
+                    <i class="ri-add-line"></i>
+
+                    <div id="runFocus">
+                        <i class="ri-play-large-fill"></i>
+                        <p>Focus</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ////////////////////////////////////////////////////////////////// -->
+        <!-- open this pc / file explorer -->
+        <div class="window desk-file" id="folderWindow">
+            <div class="window-header">
+                <div id="fileName">
+                    <img src="./icons/thispc.png" alt="">
+                    <span>This PC</span>
+                    <i id="fileClose" class="ri-close-large-line"></i>
+                </div>
+
+                <div id="btns">
+                    <button>
+                        <i id="sub" class="ri-subtract-line"></i>
+                    </button>
+                    <button>
+                        <i id="multySize" class="ri-checkbox-multiple-blank-line"></i>
+                    </button>
+                    <button>
+                        <i id="close" class="ri-close-large-line"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="filedetailSec">
+                <div id="fileIcons">
+                    <i class="ri-arrow-left-line"></i>
+                    <i class="ri-arrow-right-line"></i>
+                    <i class="ri-arrow-up-line"></i>
+                    <i class="ri-restart-line"></i>
+                </div>
+
+                <div id="inDetail">
+                    <i class="ri-computer-line"></i>
+                    <i class="ri-arrow-right-s-line"></i>
+                    <span>This PC</span>
+                    <i class="ri-arrow-right-s-line"></i>
+                </div>
+
+                <div id="scanIcon">
+                    <input type="text" placeholder="Search This PC">
+                    <i class="ri-search-line"></i>
+                </div>
+            </div>
+
+            <div id="line"></div>
+
+            <div id="otherDetails">
+                <div id="leftDetail">
+                    <div id="new">
+                        <i class="ri-add-circle-line"></i>
+                        <span>New <i class="ri-arrow-down-s-fill"></i></span>
+                    </div>
+
+                    <div id="h-line"></div>
+
+                    <div id="otherTools">
+                        <i class="ri-scissors-2-line"></i>
+                        <i class="ri-file-copy-line"></i>
+                        <i class="ri-file-list-line"></i>
+                        <i class="ri-pages-line"></i>
+                        <i class="ri-share-forward-box-fill"></i>
+                        <i class="ri-delete-bin-line"></i>
+                    </div>
+
+                    <div id="h-line"></div>
+
+                    <din id="sortView">
+                        <div id="sort">
+                            <i class="ri-arrow-up-down-line"></i>
+                            <span>Sort <i class="ri-arrow-down-s-fill"></i></span>
+                        </div>
+                        <div id="view">
+                            <i class="ri-list-indefinite"></i>
+                            <span>View <i class="ri-arrow-down-s-fill"></i></span>
+                        </div>
+                    </din>
+
+                    <div id="h-line"></div>
+
+                    <div id="more">
+                        <i class="ri-more-fill"></i>
+                    </div>
+
+                </div>
+
+                <din id="rightDetail">
+                    <i class="ri-list-unordered"></i>
+                    <span>Details</span>
+                </din>
+            </div>
+
+            <div id="line"></div>
+
+            <div id="windowContent">
+                <div class="window-leftContent">
+                    <div id="home" class="pointer fileMenuFolder">
+                        <img src="./icons/home.svg" alt="">
+                        <small>Home</small>
+                    </div>
+                    <div id="gallery" class="pointer fileMenuFolder">
+                        <img src="./icons/gallery.png" alt="">
+                        <small>Gallery</small>
+                    </div>
+                    <div id="onedrive" class="pointer fileMenuFolder">
+                        <img src="./icons/onedrive.svg" alt="">
+                        <small>suraj - Personal</small>
+                    </div>
+
+                    <div id="line"></div>
+
+                    <div id="desktop" class="pointer fileMenuFolder">
+                        <img src="./icons/desktop.png" alt="">
+                        <small>Desktop</small>
+                    </div>
+                    <div id="downloads" class="pointer fileMenuFolder">
+                        <img src="./icons/download.png" alt="">
+                        <small>Downloads</small>
+                    </div>
+                    <div id="documents" class="pointer fileMenuFolder">
+                        <img src="./icons/documents.png" alt="">
+                        <small>Documents</small>
+                    </div>
+                    <div id="picture" class="pointer fileMenuFolder">
+                        <img src="./icons/picture.svg" alt="">
+                        <small>Pictures</small>
+                    </div>
+                    <div id="music" class="pointer fileMenuFolder">
+                        <img src="./icons/music.png" alt="">
+                        <small>Music</small>
+                    </div>
+                    <div id="video" class="pointer fileMenuFolder">
+                        <img src="./icons/video.png" alt="">
+                        <small>Videos</small>
+                    </div>
+
+                    <div id="line"></div>
+
+                    <div id="thispc" class="pointer fileMenuFolder">
+                        <i id="down-arrow" class="ri-arrow-down-s-line"></i>
+                        <img src="./icons/thispc.png" alt="">
+                        <small>This PC</small>
+                    </div>
+                    <div id="osC" class="pointer fileMenuFolder">
+                        <i id="left-arrow" class="ri-arrow-right-s-line"></i>
+                        <img src="./icons/c-drive.png" alt="">
+                        <small>OS (C:)</small>
+                    </div>
+                    <div id="magnetar" class="pointer fileMenuFolder">
+                        <i id="left-arrow" class="ri-arrow-right-s-line"></i>
+                        <img src="./icons/d-drive.png" alt="">
+                        <small>Magnetar (D:)</small>
+                    </div>
+
+                </div>
+
+                <div id="longh-line"></div>
+
+                <div class="window-rightContent">
+                    <div id="smalheading">
+                        <i class="ri-arrow-down-s-line"></i>
+                        <small>Devices & drivers</small>
+                    </div>
+
+                    <div id="drivers">
+                        <div id="cDrive" class="fileMenuFolder">
+                            <img src="./icons/c-drive.png" alt="">
+                            <div id="drive-details">
+                                <span>OS (C:)</span>
+                                <div class="storageOuterBar">
+                                    <div class="strageInnerBar"></div>
+                                </div>
+                                <span>220.7 GB free of 225 GB</span>
+                            </div>
+                        </div>
+
+                        <div id="dDrive" class="fileMenuFolder">
+                            <img src="./icons/d-drive.png" alt="">
+                            <div id="drive-details">
+                                <span>Magnetar (D:)</span>
+                                <div class="storageOuterBar">
+                                    <div class="strageInnerBar"></div>
+                                </div>
+                                <span>100.2 GB free of 225 GB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ////////////////////////////////////////////////////////////////////// -->
+
+        <!-- ////////////////////////////////////////////////////////////// -->
+        <!-- this pc folder-->
+        <div class="mainScreen">
+            <div class="deskTop-apps" id="desktop-thispc">
+                <img src="./icons/thispc.png" alt="thispc">
+                <span>This PC</span>
+            </div>
+            <div class="deskTop-apps" id="desktop-shey">
+                <a class="link" href="https://www.sheryians.com/">
+                    <img src="https://ik.imagekit.io/sheryians/Sheryians_logo_EzwgcppnD" alt="sheryians">
+                    <span>Sheryians Coding School</span>
+                </a>
+            </div>
+            <div class="deskTop-apps" id="desktop-vscode">
+                <img src="./icons/vscode.svg" alt="vs code">
+                <span>VS Code</span>
+            </div>
+            <div class="deskTop-apps" id="desktop-terminal">
+                <img src="./icons/terminal.png" alt="terminal">
+                <span>Terminal</span>
+            </div>
+            <div class="deskTop-apps" id="desktop-terminal">
+                <img src="./icons/recycle-bin.png" alt="recycle">
+                <span>Recycle Bin</span>
+            </div>
+        </div>
+        <!-- ////////////////////////////////////////////////////////////// -->
+
+        <!-- //////////////////////////////////////////////////////////// -->
+        <!-- taskbar -->
+        <div class="taskbar">
+            <!-- weather (left)-->
+            <div class="task-weather">
+                <div class="weather-img">
+                    <img src="./icons/rain.png" alt="" />
+                </div>
+                <div class="weather-info">
+                    <h2>temp°C</h2>
+                    <h3>condition</h3>
+                </div>
+            </div>
+            <!-- //////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- task icons  (middle)-->
+            <div class="task-icon">
+                <!-- window icon -->
+                <div class="icons icon-window">
+                    <div class="win-img">
+                        <img src="./icons/11windows.svg" alt="#" />
+                    </div>
+                    <div class="all-title opentab-title">
+                        <div class="title">
+                            <p>Start</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- search icon -->
+                <div class="icons icon-search">
+                    <div class="all-title search-title">
+                        <div class="title">
+                            <p>Quick search</p>
+                        </div>
+                    </div>
+                    <div class="search-input">
+                        <i class="ri-search-2-line"></i>
+                        <input type="text" placeholder="Quick search" />
+                    </div>
+                </div>
+                <!-- copilot -->
+                <div class="icons icon-copilot">
+                    <div class="all-title copilot-tab">
+                        <div class="copilot-title">
+                            <p>Copilot</p>
+                        </div>
+                    </div>
+                    <div class="copilot-img">
+                        <img src="./icons/copilot.svg" alt="" />
+                    </div>
+                </div>
+                <!-- chat gpt -->
+                <div class="icons icon-chatgpt">
+                    <div class="all-title chatgpt-tab">
+                        <div class="gpt-title">
+                            <p>ChatGPT</p>
+                        </div>
+                    </div>
+                    <div class="chatgpt-img">
+                        <img src="./icons/chatgpt.svg" alt="" />
+                    </div>
+                </div>
+                <!-- edge browser-->
+                <div class="icons icon-edge">
+                    <div class="all-title edge-tab">
+                        <div class="edge-title">
+                            <p>Edge</p>
+                        </div>
+                    </div>
+                    <div class="edge-img">
+                        <img src="./icons/edge.svg" alt="" />
+                    </div>
+                </div>
+                <!-- brave browser-->
+                <div class="icons icon-brave">
+                    <div class="all-title brave-tab">
+                        <div class="brave-title">
+                            <p>Brave</p>
+                        </div>
+                    </div>
+                    <div class="brave-img">
+                        <img src="./icons/brave.svg" alt="" />
+                    </div>
+                </div>
+                <!-- vs code -->
+                <div class="icons icon-vscode">
+                    <div class="all-title vscode-tab">
+                        <div class="vscode-title">
+                            <p>VS Code</p>
+                        </div>
+                    </div>
+                    <div class="vscode-img">
+                        <img src="./icons/vscode.svg" alt="" />
+                    </div>
+                </div>
+                <!-- file explorer -->
+                <div class="icons icon-fileexplore">
+                    <div class="all-title fileexplore-tab">
+                        <div class="fileexplore-title">
+                            <p>File Explore</p>
+                        </div>
+                    </div>
+                    <div class="explore-img">
+                        <img src="./icons/fileexplore.png" alt="" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- date/indicators (right)-->
+            <div class="task-tools">
+                <div class="up-arrow">
+                    <i class="ri-arrow-up-s-line"></i>
+                </div>
+
+                <!-- keyboard -->
+                <div class="keyboard">
+                    <i class="ri-keyboard-line"></i>
+                </div>
+                <!-- language -->
+                <div class="language">
+                    <h2>ENG</h2>
+                    <h2>IN</h2>
+                </div>
+                <!-- wifi/sound/battery -->
+                <div class="wsb">
+                    <div class="wsb-status">
+                        <!-- <div class="wifi-status"><p></p></div> -->
+                        <div class="volume-status">
+                            <p></p>
+                        </div>
+                        <div class="battery-status">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="wsb-tools">
+                        <div id="wifi-icon"><i class="ri-wifi-line"></i></div>
+                        <div id="volume-icon"><i class="ri-volume-up-line"></i></div>
+                        <div id="battery-icon"></div>
+                    </div>
+                </div>
+                <!-- time/date -->
+                <div class="time-date">
+                    <!-- time -->
+                    <div class="time-ampm">
+                        <div class="time">
+                            <h2>00:00</h2>
+                        </div>
+                        <div class="ampm">
+                            <h2>AM</h2>
+                        </div>
+                    </div>
+                    <!-- date -->
+                    <div class="date">
+                        <h2>00-00-0000</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
