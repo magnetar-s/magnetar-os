@@ -151,25 +151,59 @@ function timeDate() {
   let time = document.querySelector(".time-date .time-ampm .time h2");
   let ampm = document.querySelector(".time-date .time-ampm .ampm h2");
   let fullDate = document.querySelector(".time-date .date h2");
+  let notifyTime = document.querySelector("#notifyDownTab #clock p");
+  let weekDateYear = document.querySelector("#notifyDownTab #day p");
 
   function timedate() {
+    let daysOfWeek = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    let totalMonths = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
     let date = new Date();
     let dinanka = date.getDate();
+    let day = daysOfWeek[date.getDay()];
     let month = date.getMonth();
+    let monthInName = totalMonths[date.getMonth()];
     let year = date.getFullYear();
     let hours = date.getHours();
     let minutes = date.getMinutes();
     let cnvrtampm = hours >= 12 ? "PM" : "AM";
-
     hours = hours % 12 || 12;
 
     time.innerHTML = `${String(hours).padStart(2, "0")}:${String(
       minutes
     ).padStart(2, "0")}`;
+
     ampm.innerHTML = `${cnvrtampm}`;
+
     fullDate.innerHTML = `${String(dinanka).padStart(2, "0")}-${String(
       month + 1
     ).padStart(2, "0")}-${year}`;
+
+    notifyTime.innerHTML = `${String(hours).padStart(2, "0")}:${String(
+      minutes
+    ).padStart(2, "0")} Today`;
+
+    weekDateYear.innerHTML = `${day}, ${dinanka} ${monthInName}`;
   }
 
   setInterval(timedate, 1000);
@@ -177,6 +211,32 @@ function timeDate() {
 timeDate();
 // end battery / volume / wifi / time.
 // ///////////////////////////////////////////////////////////////
+
+// focus mode time set
+function focusMode() {
+  const minutesElement = document.querySelector("#focus h2");
+  const sub = document.getElementById("sub");
+  const add = document.getElementById("add");
+
+  const maxMinutes = 60;
+  const minMinutes = 0;
+
+  add.addEventListener("click", () => {
+    let currentMinutes = parseInt(minutesElement.innerText);
+    if (currentMinutes < maxMinutes) {
+      minutesElement.innerText = currentMinutes + 1;
+    }
+  });
+
+  sub.addEventListener("click", () => {
+    let currentMinutes = parseInt(minutesElement.innerText);
+    if (currentMinutes > minMinutes) {
+      minutesElement.innerText = currentMinutes - 1;
+    }
+  });
+}
+
+focusMode();
 
 // ////////////////////////////////////////////////////////////////////
 // start task bar icons animation
@@ -188,7 +248,6 @@ function winIconAnimation() {
   let winImg = document.querySelector(".icon-window .win-img img");
   let winOpenTab = document.querySelector(".opentab");
   let display = document.querySelector(".desktop-screen");
-  let menu = document.getElementById("customMenu");
   let hoverTimeout;
 
   winButton.addEventListener("mouseover", () => {
@@ -202,20 +261,24 @@ function winIconAnimation() {
     winText.style.opacity = "0";
   });
 
+  // ^^^^^^^^^^
   winButton.addEventListener("click", (e) => {
     e.stopPropagation();
-    winOpenTab.classList.toggle("show");
+    winOpenTab.classList.toggle("open");
   });
+
+  display.addEventListener("click", (e) => {
+    winOpenTab.classList.remove("open");
+  });
+
+  // ^^^^^^^^^^
   winOpenTab.addEventListener("click", (e) => {
     e.stopPropagation();
   });
   winOpenTab.addEventListener("contextmenu", (e) => {
     e.stopPropagation();
   });
-  display.addEventListener("click", (e) => {
-    winOpenTab.classList.remove("show");
-  });
-
+  // ^^^^^^^^^^^^^^
   winButton.addEventListener("pointerdown", () => {
     winImg.style.scale = "0.8";
   });
@@ -477,9 +540,10 @@ function fileexploreIconAnimation() {
   const explorerTab = document.getElementById("folderWindow");
 
   let flag = 0;
-  let isMinimized = true;
   let hoverTimeout;
+  let mode = "slid";
 
+  // hover effect
   fileexploreIcon.addEventListener("mouseover", () => {
     hoverTimeout = setTimeout(() => {
       exploreText.style.opacity = "1";
@@ -491,6 +555,7 @@ function fileexploreIconAnimation() {
     exploreText.style.opacity = "0";
   });
 
+  // open /close animation
   function playIconAnimation() {
     fileexploreIcon.style.scale = "0.8";
 
@@ -507,21 +572,101 @@ function fileexploreIconAnimation() {
     flag = flag === 0 ? 1 : 0;
   }
 
-  fileexploreIconBox.addEventListener("click", () => {
-    if (isMinimized) {
-      explorerTab.style.display = "block";
-      isMinimized = false;
-      playIconAnimation();
+  // Open tab
+  function openTab() {
+    explorerTab.classList.add("show");
+
+    if (mode === "slide") {
+      explorerTab.style.bottom = "80px";
+      explorerTab.style.opacity = "1";
+      explorerTab.style.pointerEvents = "auto";
+    } else {
+      explorerTab.style.opacity = "1";
+      explorerTab.style.pointerEvents = "auto";
     }
+  }
+
+  // Close tab
+  function closeTab() {
+    explorerTab.classList.remove("show");
+
+    if (mode === "slide") {
+      explorerTab.style.bottom = "-400px";
+    } else {
+      // Keep fullscreen or center layout, but move it down
+      explorerTab.style.bottom = "80px"; // temporarily reset bottom
+
+      // remove top/left/transform so bottom works
+      explorerTab.style.top = "";
+      explorerTab.style.left = "";
+      explorerTab.style.transform = "";
+
+      // Don't touch width/height — keep fullscreen size
+
+      // Force reflow to re-trigger transition
+      void explorerTab.offsetWidth;
+
+      // Slide down
+      explorerTab.style.bottom = "-400px";
+    }
+
+    // Hide visually
+    explorerTab.style.opacity = "0";
+    explorerTab.style.pointerEvents = "none";
+  }
+
+  // Toggle on icon click
+  fileexploreIconBox.addEventListener("click", () => {
+    const isOpen = explorerTab.classList.contains("show");
+
+    if (isOpen) {
+      // closeExplorerTab();
+      closeTab();
+    } else {
+      openTab();
+      // explorerTab.classList.add("show");
+
+      // if (!isFullscreen && !isDragged) {
+      //   explorerTab.style.bottom = "80px";
+      // }
+
+      // explorerTab.style.opacity = "1";
+      // explorerTab.style.pointerEvents = "auto";
+    }
+    playIconAnimation();
   });
 
+  // close button
   close.addEventListener("click", () => {
-    if (!isMinimized) {
-      explorerTab.style.display = "none";
-      isMinimized = true;
-      playIconAnimation();
-    }
+    // closeExplorerTab();
+    closeTab();
+    playIconAnimation();
   });
+
+  // window.addEventListener("resize", () => {
+  //   isFullscreen = false;
+  //   isDragged = false;
+  //   closeExplorerTab();
+  // });
+  // Handle external access from resizeScreen()
+  window.setFolderWindowMode = (newMode) => {
+    mode = newMode; // 'slide' | 'center' | 'fullscreen'
+  };
+
+  // Close tab on resize
+  window.addEventListener("resize", () => {
+    closeTab();
+  });
+
+  // // Allow dragFileExplor() to mark as dragged
+  // window.markFolderDragged = () => {
+  //   isDragged = true;
+  // };
+
+  // // Allow resizeScreen() to mark fullscreen
+  // window.markFolderFullscreen = (state) => {
+  //   isFullscreen = state;
+  // };
 }
 fileexploreIconAnimation();
 
@@ -535,35 +680,38 @@ function resizeScreen() {
 
   multySize.addEventListener("click", () => {
     if (flag) {
+      // Small screen
       folderWindow.style.width = "50%";
       folderWindow.style.height = "60%";
-      folderWindow.style.borderRadius = "10px";
-
-      folderWindow.style.position = "absolute";
       folderWindow.style.left = "50%";
       folderWindow.style.top = "50%";
       folderWindow.style.transform = "translate(-50%, -50%)";
-
-      folderWindow.classList.remove("fullscreen");
-
+      folderWindow.style.bottom = "auto";
       windowContent.style.height = "calc(100% - 130px)";
       windowContent.style.overflow = "auto";
       windowContent.scrollTop = 0;
+      window.setFolderWindowMode?.("center");
+
+      folderWindow.style.borderRadius = "10px";
+      // folderWindow.style.position = "absolute";
+      // folderWindow.classList.remove("fullscreen");
     } else {
+      // Fullscreen
+
       folderWindow.style.width = "100%";
       folderWindow.style.height = "100%";
-      folderWindow.style.borderRadius = "0";
-
-      folderWindow.style.position = "absolute";
       folderWindow.style.left = "0";
       folderWindow.style.top = "0";
       folderWindow.style.transform = "none";
-
-      folderWindow.classList.add("fullscreen");
-
+      folderWindow.style.bottom = "auto";
       windowContent.style.height = "calc(100% - 100px)";
       windowContent.style.overflow = "hidden";
       windowContent.scrollTop = 0;
+      window.setFolderWindowMode?.("fullscreen");
+
+      folderWindow.style.borderRadius = "0";
+      // folderWindow.style.position = "absolute";
+      // folderWindow.classList.add("fullscreen");
     }
 
     flag = !flag;
@@ -582,7 +730,6 @@ function dragFileExplor() {
   let offsetY = 0;
 
   folderHeader.addEventListener("mousedown", (e) => {
-    // Get computed width to check if it's 100% (fullscreen)
     const folderRect = folderWindow.getBoundingClientRect();
     const parentRect = folderWindow.offsetParent.getBoundingClientRect();
 
@@ -590,13 +737,13 @@ function dragFileExplor() {
       Math.round(folderRect.width) >= Math.round(parentRect.width) &&
       Math.round(folderRect.height) >= Math.round(parentRect.height);
 
-    if (isFullScreen) return; // Block dragging if fullscreen
+    if (isFullScreen) return;
 
     isDragging = true;
     offsetX = e.clientX - folderRect.left;
     offsetY = e.clientY - folderRect.top;
 
-    folderWindow.style.transition = "none"; // Optional: disable smooth animation while dragging
+    folderWindow.style.transition = "none";
   });
 
   document.addEventListener("click", (e) => {
@@ -608,44 +755,18 @@ function dragFileExplor() {
 
     folderWindow.style.left = `${e.clientX - offsetX}px`;
     folderWindow.style.top = `${e.clientY - offsetY}px`;
-    folderWindow.style.transform = "none"; // remove transform before dragging
+    folderWindow.style.transform = "none";
   });
 
   document.addEventListener("mouseup", () => {
     isDragging = false;
-    folderWindow.style.transition = ""; // Optional: re-enable smooth transition after drag
+    folderWindow.style.transition = "";
   });
 }
 dragFileExplor();
 
 // //////////////////////////////////////////////////////////////////////////////////////////////
 
-// //////////////////////////////////////////////////////////////////////////////////////////////
-// draggable folders
-function dragFolder(el) {
-  let dragging = false;
-  let xOffset = 0;
-  let yOffset = 0;
-
-  el.addEventListener("mousedown", (e) => {
-    dragging = true;
-    xOffset = e.clientX - el.offsetLeft;
-    yOffset = e.clientY - el.offsetTop;
-  });
-
-  document.addEventListener("mousemove", (e) => {
-    if (dragging) {
-      el.style.left = `${e.clientX - xOffset}px`;
-      el.style.top = `${e.clientY - yOffset}px`;
-    }
-  });
-
-  document.addEventListener("mouseup", () => {
-    dragging = false;
-  });
-}
-
-dragFolder(document.querySelector(".deskTop-apps"));
 // //////////////////////////////////////////////////////////////////////////////////////////////
 
 // theme
@@ -817,7 +938,7 @@ function createFolder() {
     }
   });
 }
-createFolder()
+createFolder();
 
 //////////////////////////////////////////////////////////////////////////
 // Create new files and save locak storage
@@ -831,45 +952,55 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = `New file ${fileCount++}`;
     const left = Math.random() * 500;
     const top = Math.random() * 300;
-    createNewfile(name, left, top);
-    addfileToStorage(name, left, top);
+    const icon = "./icons/file.svg";
+
+    createNewfile(name, left, top, icon);
+    addfileToStorage(name, left, top, icon);
   });
 
   // Restore files from storage
   const savedFiles = JSON.parse(localStorage.getItem("files")) || [];
-  savedFiles.forEach(({ name, left, top }) => {
-    createNewfile(name, left, top);
+  savedFiles.forEach(({ name, left, top, icon }) => {
+    createNewfile(name, left, top, icon);
   });
   fileCount = savedFiles.length + 1;
 
-  function createNewfile(name, left, top) {
+  function createNewfile(name, left, top, icon = "./icons/file.svg") {
     const file = document.createElement("div");
     file.className = "deskTop-apps";
     file.style.left = left + "px";
     file.style.top = top + "px";
     file.innerHTML = `
-          <img src="./icons/file.svg" alt="file" />
+          <img src="${icon}" alt="file" />
           <span>${name}</span>
         `;
     desktop.appendChild(file);
   }
 
-  function addfileToStorage(name, left, top) {
-    console.log("Saving folder:", name, left, top);
-    const saved = JSON.parse(localStorage.getItem("folders")) || [];
-    saved.push({ name, left, top });
-    localStorage.setItem("folders", JSON.stringify(saved));
+  function addfileToStorage(name, left, top, icon = "./icons/file.svg") {
+    console.log("Saving folder:", name, left, top, icon);
+    const saved = JSON.parse(localStorage.getItem("files")) || [];
+    saved.push({ name, left, top, icon });
+    localStorage.setItem("files", JSON.stringify(saved));
   }
 });
+
 // ////////////////////////////////////////////////////////////////////////////
 
 // notification - time / date
 function showNotification() {
-const nitifyBtn = document.querySelector(".task-tools .time-date")
-const notifyTab = document.getElementById("notificationTab")
+  const notifyBtn = document.querySelector(".task-tools .time-date");
+  const notifyTab = document.querySelector(".notifyTab");
+  const closeAreas = document.querySelectorAll(".mainScreen, .wsb-tools");
 
-nitifyBtn.addEventListener("click", () => {
-  notifyTab.style.display = notifyTab.style.display === "block" ? "none" : "block"
-})
+  notifyBtn.addEventListener("click", () => {
+    notifyTab.classList.toggle("open");
+  });
+
+  closeAreas.forEach((area) => {
+    area.addEventListener("click", () => {
+      notifyTab.classList.remove("open");
+    });
+  });
 }
-showNotification()
+showNotification();

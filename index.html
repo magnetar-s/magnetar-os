@@ -205,7 +205,7 @@
         <!-- ////////////////////////////////////////////////////////////// -->
 
         <!-- notification tab -->
-        <div id="notificationTab">
+        <div id="notificationTab" class="notifyTab">
             <div id="notifyTopTab">
                 <div id="notifyText">
                     <p>Notifications</p>
@@ -218,17 +218,17 @@
             </div>
             <div id="notifyDownTab">
                 <div id="day">
-                    <p>Tuesday, 1 July</p>
+                    <p>day, date month</p>
                     <i class="ri-arrow-up-s-line"></i>
                 </div>
                 <div id="clock">
                     <h2>Clock 1</h2>
-                    <p>09:32 Today</p>
+                    <p>00:00</p>
                 </div>
                 <div id="focus">
-                    <i class="ri-subtract-fill"></i>
-                    <h2>30 <span>min</span></h2>
-                    <i class="ri-add-line"></i>
+                    <i id="sub" class="ri-subtract-fill"></i>
+                    <h2>30</h2> <span>min</span>
+                    <i id="add" class="ri-add-line"></i>
 
                     <div id="runFocus">
                         <i class="ri-play-large-fill"></i>
@@ -427,7 +427,96 @@
                 </div>
             </div>
         </div>
+
         <!-- ////////////////////////////////////////////////////////////////////// -->
+        <!-- vs code tab -->
+        <div class="vsCodeTab">
+            <div class="vsHeader">
+                <div class="vsLeftHeader">
+                    <img src="./icons/vscode.svg" alt="vs-ode">
+                    <span>File</span>
+                    <span>Edit</span>
+                    <span>Selection</span>
+                    <span>View</span>
+                    <span>Go</span>
+                    <span>Run</span>
+                    <span>Terminal</span>
+                    <span>Help</span>
+
+                    <div class="vsHeaderArrow">
+                        <i class="ri-arrow-left-line"></i>
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
+
+                    <div class="vsSearch">
+                        <i class="ri-search-line"></i>
+                        <p>newWindowsOs</p>
+                    </div>
+
+                    <div class="vsCopilot">
+                        <i class="ri-copilot-fill"></i>
+                        <i class="down ri-arrow-down-s-line"></i>
+                    </div>
+                </div>
+
+                <div class="vsRightHeader">
+
+                    <div class="vsLayout">
+                        <i class="ri-layout-2-line"></i>
+                        <i class="ri-layout-left-line"></i>
+                        <i class="ri-layout-bottom-line"></i>
+                        <i class="ri-layout-right-line"></i>
+                    </div>
+
+                    <div class="vsClose">
+                        <i class="ri-subtract-line"></i>
+                        <i class="ri-checkbox-multiple-blank-line"></i>
+                        <i id="vsCloseBtn" class="ri-close-large-line"></i>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="vsFileSec">
+                <div class="vsFiles">
+                    <div class="workFiles">
+                        <i id="file" class="ri-file-3-line"></i>
+                        <i class="ri-search-line"></i>
+                        <i class="ri-git-branch-line"></i>
+                        <i class="ri-bug-line"></i>
+                        <i class="ri-layout-grid-line"></i>
+                        <i class="ri-computer-line"></i>
+                    </div>
+
+                    <div class="vsAdmin">
+                        <i class="ri-account-circle-line"></i>
+                        <i class="ri-settings-5-line"></i>
+                    </div>
+
+                </div>
+            </div>
+            <div class="vsFooter">
+                <div class="leftFooter">
+                    <i id="code" class="ri-code-ai-fill"></i>
+                    <div class="errors">
+                        <i class="ri-close-circle-line"></i>
+                        <p>0</p>
+                        <i class="ri-alert-line"></i>
+                        <p>0</p>
+                    </div>
+                </div>
+
+                <div class="rightFooter">
+                    <i class="ri-copilot-fill"></i>
+                    <div class="goLive">
+                        <i class="ri-gps-line"></i>
+                        <p>Go Live</p>
+                    </div>
+                    <i class="ri-notification-3-line"></i>
+                </div>
+
+            </div>
+        </div>
 
         <!-- ////////////////////////////////////////////////////////////// -->
         <!-- this pc folder-->
@@ -442,10 +531,7 @@
                     <span>Sheryians Coding School</span>
                 </a>
             </div>
-            <div class="deskTop-apps" id="desktop-vscode">
-                <img src="./icons/vscode.svg" alt="vs code">
-                <span>VS Code</span>
-            </div>
+
             <div class="deskTop-apps" id="desktop-terminal">
                 <img src="./icons/terminal.png" alt="terminal">
                 <span>Terminal</span>

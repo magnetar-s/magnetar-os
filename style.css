@@ -848,11 +848,12 @@ body {
 /* main/parent windows start tab */
 .opentab {
   color: var(--primaryText);
+  background-color: var(--surface);
   position: absolute;
-  bottom: 59px;
+  bottom: -750px;
   width: 40rem;
   height: 45rem;
-  display: none;
+  display: flex;
   align-items: start;
   justify-content: start;
   flex-direction: column;
@@ -862,21 +863,15 @@ body {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   border-radius: 8px;
-  transition: opacity 0.5s ease;
+  transition: all ease 0.6s;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  opacity: 0;
   z-index: 9900;
 }
 
-.opentab.show {
-  opacity: 1;
-  display: block;
-}
-
-.opentab.show {
-  display: flex;
+.opentab.open {
+  bottom: 59px;
 }
 
 /* upper section */
@@ -1206,20 +1201,23 @@ body {
 
 /* //////////////////////////////////////////////////////////////////////////////////// */
 /* open folder/file explorer window */
-#folderWindow {
+.desk-file {
   position: absolute;
-  top: 50%;
+  top: 160%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   z-index: 1000;
-  display: none;
   background-color: var(--background);
-  transition: all ease 0.2s;
+  transition: all ease-in-out 0.4s;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 0 10px var(--black);
+}
+
+.desk-file.show {
+  top: 50%;
 }
 
 #folderWindow .window-header {
@@ -1736,11 +1734,11 @@ body {
 }
 
 /* notification tab */
-#notificationTab {
-  display: none;
+.notifyTab {
+  /* display: none; */
   position: absolute;
   bottom: 60px;
-  right: 10px;
+  right: -340px;
   width: 340px;
   height: 400px;
   border-radius: 5px;
@@ -1748,8 +1746,12 @@ body {
   transition: all ease 0.5s;
 }
 
+.notifyTab.open {
+  right: 10px;
+}
+
 #notificationTab #notifyTopTab {
-display: flex;
+  display: flex;
   flex-direction: column;
   position: absolute;
   top: 0;
@@ -1845,17 +1847,19 @@ display: flex;
 #notificationTab #notifyDownTab #focus h2 {
   font-size: 15px;
   padding: 0 20px;
+  padding-right: 8px;
   font-weight: 500;
 }
 
 #notificationTab #notifyDownTab #focus span {
-font-size: 13px;
-font-weight: 500;
-color: var(--secondaryText);
+  font-size: 13px;
+  font-weight: 500;
+  padding-right: 12px;
+  color: var(--secondaryText);
 }
 
 #notificationTab #notifyDownTab #focus i {
-  padding: 3px;
+  padding: 2px;
   background-color: var(--surface);
   border-radius: 5px;
   border: 1px solid var(--disabled);
@@ -1888,4 +1892,281 @@ color: var(--secondaryText);
   background-color: transparent;
   border-radius: 5px;
   border: none;
+}
+
+/* vs code tab */
+.vsCodeTab {
+  position: absolute;
+  /* top: 160%; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background-color: var(--background);
+  transition: all ease-in-out 0.4s;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 10px var(--black);
+}
+
+/* .vsCodeTab.show {
+  top: 50%;
+} */
+
+.vsCodeTab .vsHeader {
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 36px;
+  padding-left: 10px;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader span {
+  color: var(--disabled);
+  font-size: 13px;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader span:hover {
+  background-color: var(--surface);
+  color: var(--secondaryText);
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsHeaderArrow {
+  padding-left: 20px;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsHeaderArrow i {
+  color: var(--disabled);
+  font-size: 18px;
+  padding: 3px 3px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsHeaderArrow i:hover {
+  background-color: var(--surface);
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsCopilot {
+  color: var(--disabled);
+  font-size: 18px;
+  border-radius: 5px;
+  padding-top: 2px;
+  position: relative;
+  width: 46px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsCopilot:hover {
+  background-color: var(--surface);
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsCopilot i {
+  position: absolute;
+  left: 6px;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsCopilot .down {
+  left: 25px;
+  border-radius: 5px;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsCopilot .down:hover {
+  background-color: var(--border);
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface);
+  padding: 3px 210px;
+  margin: 0 5px;
+  border-radius: 5px;
+  color: var(--disabled);
+  cursor: pointer;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsSearch:hover {
+  background-color: var(--background);
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsSearch p {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.vsCodeTab .vsHeader .vsLeftHeader .vsSearch i {
+  transform: scaleX(-1);
+}
+
+/* vs code right section///////////////////////////////// */
+.vsCodeTab .vsRightHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.vsCodeTab .vsRightHeader .vsLayout i {
+  padding: 2px;
+  font-size: 20px;
+  border-radius: 5px;
+  color: var(--disabled);
+}
+
+.vsCodeTab .vsRightHeader .vsLayout i:hover {
+  background-color: var(--surface);
+}
+
+.vsCodeTab .vsRightHeader .vsClose i {
+  color: var(--disabled);
+  padding: 10px 13px;
+}
+
+.vsCodeTab .vsRightHeader .vsClose i:hover {
+  background-color: var(--surface);
+}
+
+.vsCodeTab .vsRightHeader .vsClose #vsCloseBtn:hover {
+  background-color: var(--close);
+  color: var(--secondaryText);
+}
+
+/* vs code file section */
+.vsCodeTab .vsFileSec {
+  width: 270px;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  background-color: var(--black);
+}
+
+.vsCodeTab .vsFileSec .vsFiles {
+  width: 55px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.vsCodeTab .vsFileSec .vsFiles i {
+  font-size: 25px;
+  padding: 10px;
+  color: var(--disabled);
+}
+
+.vsCodeTab .vsFileSec .vsFiles i:hover {
+  color: var(--accent);
+}
+
+.vsCodeTab .vsFileSec .vsFiles .workFiles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.vsCodeTab .vsFileSec .vsFiles .workFiles #file {
+  background-color: var(--border);
+}
+
+.vsCodeTab .vsFileSec .vsFiles .vsAdmin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 110px;
+}
+
+/* vs footer */
+.vsCodeTab .vsFooter {
+  position: absolute;
+  bottom: 47px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 28px;
+  background-color: var(--black);
+}
+
+.vsCodeTab .vsFooter .leftFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vsCodeTab .vsFooter .leftFooter .errors {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.vsCodeTab .vsFooter .leftFooter .errors:hover {
+  background-color: var(--accent);
+}
+
+.vsCodeTab .vsFooter .leftFooter p {
+  font-size: 12px;
+}
+
+.vsCodeTab .vsFooter .leftFooter #code {
+  padding: 5px 15px;
+  margin-right: 10px;
+  background-color: var(--accent);
+}
+
+.vsCodeTab .vsFooter .rightFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  gap: 5px;
+}
+
+.vsCodeTab .vsFooter .rightFooter i {
+  padding: 5px;
+}
+
+.vsCodeTab .vsFooter .rightFooter i:hover {
+  background-color: var(--accent);
+}
+
+.vsCodeTab .vsFooter .rightFooter .goLive {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+}
+
+.vsCodeTab .vsFooter .rightFooter .goLive:hover {
+  background-color: var(--accent);
+}
+
+.vsCodeTab .vsFooter .rightFooter .goLive p {
+  font-size: 12px;
 }
