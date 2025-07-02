@@ -477,24 +477,81 @@
                 </div>
             </div>
 
-            <div class="vsFileSec">
-                <div class="vsFiles">
-                    <div class="workFiles">
-                        <i id="file" class="ri-file-3-line"></i>
-                        <i class="ri-search-line"></i>
-                        <i class="ri-git-branch-line"></i>
-                        <i class="ri-bug-line"></i>
-                        <i class="ri-layout-grid-line"></i>
-                        <i class="ri-computer-line"></i>
+            <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+            <div class="vsBody">
+                <div class="vsFileSec">
+                    <div class="vsFiles">
+                        <div class="workFiles">
+                            <i id="file" class="ri-file-3-line"></i>
+                            <i class="ri-search-line"></i>
+                            <i class="ri-git-branch-line"></i>
+                            <i class="ri-bug-line"></i>
+                            <i class="ri-apps-2-ai-line"></i>
+                            <i class="ri-computer-line"></i>
+                        </div>
+
+                        <div class="vsAdmin">
+                            <i class="ri-account-circle-line"></i>
+                            <i class="ri-settings-5-line"></i>
+                        </div>
                     </div>
 
-                    <div class="vsAdmin">
-                        <i class="ri-account-circle-line"></i>
-                        <i class="ri-settings-5-line"></i>
+                    <div class="verticalLine"></div>
+
+                    <div class="vsExploreSec">
+                        <div class="exploreHead">
+                            <p>EXPLORER</p>
+                            <i class="ri-more-line"></i>
+                        </div>
+
+                        <div class="vsNewFolder">
+                            <i class="ri-arrow-right-s-line"></i>
+                            <p>NEW FOLDER</p>
+                        </div>
+
+                        <div class="horizontalLine"></div>
+
+                        <div class="vsOutliner">
+                            <i class="ri-arrow-right-s-line"></i>
+                            <p>OUTLINE</p>
+                        </div>
+
+                        <div class="horizontalLine"></div>
+
+                        <div class="vsTimeLine">
+                            <i class="ri-arrow-right-s-line"></i>
+                            <p>TIMELINE</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+                <div class="vsWorkSection">
+                    <div class="workHead">
+                        <div class="vsFileName">
+                            <img src="./icons/vscode.svg" alt="vsIcon">
+                            <p>Welcome</p>
+                            <i class="ri-close-large-line"></i>
+                        </div>
+
+                        <div class="otherTools">
+                            <i class="ri-play-large-line"></i>
+                            <i class="ri-layout-column-line"></i>
+                            <i class="ri-more-line"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="horizontalLine"></div>
+
+                    <div class="codeSpace">
+                        <textarea type="text" placeholder="Write your magic here..."></textarea>
                     </div>
 
                 </div>
             </div>
+
+            <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
             <div class="vsFooter">
                 <div class="leftFooter">
                     <i id="code" class="ri-code-ai-fill"></i>
@@ -518,8 +575,90 @@
             </div>
         </div>
 
+        <!-- //////////////////////////////////////////////////////////////////////////// -->
+        <!-- brave browser -->
+        <div class="braveBrowser">
+            <div class="braveHeader">
+                <div class="newTab">
+                    <h2>New Tab</h2>
+                    <i class="ri-close-large-line"></i>
+                </div>
+
+                <div class="closeBrowser">
+                    <i class="ri-subtract-line"></i>
+                    <i class="ri-file-copy-line"></i>
+                    <i id="close" class="ri-close-large-line"></i>
+                </div>
+            </div>
+
+            <div class="braveSearch">
+                <div class="togglePage">
+                    <i class="ri-arrow-right-wide-line"></i>
+                    <i class="ri-arrow-left-wide-fill"></i>
+                    <i class="ri-restart-line"></i>
+                </div>
+
+                <div class="searchInput">
+                    <input type="text" id="urlInput" placeholder="Search Sher or typr a URL" />
+                    <img src="./icons/brave.svg" alt="">
+                </div>
+
+                <div class="menuMre">
+                    <i class="ri-layout-right-line"></i>
+                    <i class="ri-bard-line"></i>
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+
+            <div class="braveLine"></div>
+
+            <iframe id="browserFrame" src="" frameborder="0"></iframe>
+        </div>
+
+        <!-- //////////////////////////////////////////////////////////////////////////// -->
+        <!-- chat gpt -->
+        <div class="chatGptTab">
+            <div class="gptHeader">
+                <div class="gptIcon">
+                    <img src="./icons/chatgpt.svg" alt="chatGPT">
+                    <p>Chat GPT</p>
+                </div>
+
+                <div class="closeGpt">
+                    <i class="ri-subtract-line"></i>
+                    <i class="ri-file-copy-line"></i>
+                    <i id="close" class="ri-close-large-line"></i>
+                </div>
+            </div>
+
+            <div class="gptLine"></div>
+
+            <div class="gptWorkSpace">
+                <giv class="gptTools">
+                    <img src="./icons/chatgpt.svg" alt="chatGPT">
+                    <i class="ri-draft-line"></i>
+                    <i class="ri-search-2-line"></i>
+                    <i class="ri-image-edit-line"></i>
+                </giv>
+
+                <div class="gptLine"></div>
+
+                <div class="chatContainer">
+                    <div class="getPlus">
+                        <i class="ri-shining-fill"></i>
+                        <h2>Get Plus</h2>
+                    </div>
+                    <div class="askGpt">
+                        <div class="chatBox" id="chatBox"></div>
+                        <input type="text" id="userInput" placeholder="Ask me anything..." />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <!-- ////////////////////////////////////////////////////////////// -->
-        <!-- this pc folder-->
+        <!-- this pc main screen-->
         <div class="mainScreen">
             <div class="deskTop-apps" id="desktop-thispc">
                 <img src="./icons/thispc.png" alt="thispc">
@@ -545,164 +684,166 @@
 
         <!-- //////////////////////////////////////////////////////////// -->
         <!-- taskbar -->
-        <div class="taskbar">
-            <!-- weather (left)-->
-            <div class="task-weather">
-                <div class="weather-img">
-                    <img src="./icons/rain.png" alt="" />
-                </div>
-                <div class="weather-info">
-                    <h2>temp°C</h2>
-                    <h3>condition</h3>
-                </div>
-            </div>
-            <!-- //////////////////////////////////////////////////////////////////////////////////// -->
-            <!-- task icons  (middle)-->
-            <div class="task-icon">
-                <!-- window icon -->
-                <div class="icons icon-window">
-                    <div class="win-img">
-                        <img src="./icons/11windows.svg" alt="#" />
-                    </div>
-                    <div class="all-title opentab-title">
-                        <div class="title">
-                            <p>Start</p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- search icon -->
-                <div class="icons icon-search">
-                    <div class="all-title search-title">
-                        <div class="title">
-                            <p>Quick search</p>
-                        </div>
-                    </div>
-                    <div class="search-input">
-                        <i class="ri-search-2-line"></i>
-                        <input type="text" placeholder="Quick search" />
-                    </div>
+
+        <!--  -->
+    </div>
+    <div class="taskbar">
+        <!-- weather (left)-->
+        <div class="task-weather">
+            <div class="weather-img">
+                <img src="./icons/rain.png" alt="" />
+            </div>
+            <div class="weather-info">
+                <h2>temp°C</h2>
+                <h3>condition</h3>
+            </div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- task icons  (middle)-->
+        <div class="task-icon">
+            <!-- window icon -->
+            <div class="icons icon-window">
+                <div class="win-img">
+                    <img src="./icons/11windows.svg" alt="#" />
                 </div>
-                <!-- copilot -->
-                <div class="icons icon-copilot">
-                    <div class="all-title copilot-tab">
-                        <div class="copilot-title">
-                            <p>Copilot</p>
-                        </div>
-                    </div>
-                    <div class="copilot-img">
-                        <img src="./icons/copilot.svg" alt="" />
-                    </div>
-                </div>
-                <!-- chat gpt -->
-                <div class="icons icon-chatgpt">
-                    <div class="all-title chatgpt-tab">
-                        <div class="gpt-title">
-                            <p>ChatGPT</p>
-                        </div>
-                    </div>
-                    <div class="chatgpt-img">
-                        <img src="./icons/chatgpt.svg" alt="" />
-                    </div>
-                </div>
-                <!-- edge browser-->
-                <div class="icons icon-edge">
-                    <div class="all-title edge-tab">
-                        <div class="edge-title">
-                            <p>Edge</p>
-                        </div>
-                    </div>
-                    <div class="edge-img">
-                        <img src="./icons/edge.svg" alt="" />
-                    </div>
-                </div>
-                <!-- brave browser-->
-                <div class="icons icon-brave">
-                    <div class="all-title brave-tab">
-                        <div class="brave-title">
-                            <p>Brave</p>
-                        </div>
-                    </div>
-                    <div class="brave-img">
-                        <img src="./icons/brave.svg" alt="" />
-                    </div>
-                </div>
-                <!-- vs code -->
-                <div class="icons icon-vscode">
-                    <div class="all-title vscode-tab">
-                        <div class="vscode-title">
-                            <p>VS Code</p>
-                        </div>
-                    </div>
-                    <div class="vscode-img">
-                        <img src="./icons/vscode.svg" alt="" />
-                    </div>
-                </div>
-                <!-- file explorer -->
-                <div class="icons icon-fileexplore">
-                    <div class="all-title fileexplore-tab">
-                        <div class="fileexplore-title">
-                            <p>File Explore</p>
-                        </div>
-                    </div>
-                    <div class="explore-img">
-                        <img src="./icons/fileexplore.png" alt="" />
+                <div class="all-title opentab-title">
+                    <div class="title">
+                        <p>Start</p>
                     </div>
                 </div>
             </div>
 
-            <!-- date/indicators (right)-->
-            <div class="task-tools">
-                <div class="up-arrow">
-                    <i class="ri-arrow-up-s-line"></i>
-                </div>
-
-                <!-- keyboard -->
-                <div class="keyboard">
-                    <i class="ri-keyboard-line"></i>
-                </div>
-                <!-- language -->
-                <div class="language">
-                    <h2>ENG</h2>
-                    <h2>IN</h2>
-                </div>
-                <!-- wifi/sound/battery -->
-                <div class="wsb">
-                    <div class="wsb-status">
-                        <!-- <div class="wifi-status"><p></p></div> -->
-                        <div class="volume-status">
-                            <p></p>
-                        </div>
-                        <div class="battery-status">
-                            <p></p>
-                        </div>
-                    </div>
-
-                    <div class="wsb-tools">
-                        <div id="wifi-icon"><i class="ri-wifi-line"></i></div>
-                        <div id="volume-icon"><i class="ri-volume-up-line"></i></div>
-                        <div id="battery-icon"></div>
+            <!-- search icon -->
+            <div class="icons icon-search">
+                <div class="all-title search-title">
+                    <div class="title">
+                        <p>Quick search</p>
                     </div>
                 </div>
-                <!-- time/date -->
-                <div class="time-date">
-                    <!-- time -->
-                    <div class="time-ampm">
-                        <div class="time">
-                            <h2>00:00</h2>
-                        </div>
-                        <div class="ampm">
-                            <h2>AM</h2>
-                        </div>
+                <div class="search-input">
+                    <i class="ri-search-2-line"></i>
+                    <input type="text" placeholder="Quick search" />
+                </div>
+            </div>
+            <!-- copilot -->
+            <div class="icons icon-copilot">
+                <div class="all-title copilot-tab">
+                    <div class="copilot-title">
+                        <p>Copilot</p>
                     </div>
-                    <!-- date -->
-                    <div class="date">
-                        <h2>00-00-0000</h2>
+                </div>
+                <div class="copilot-img">
+                    <img src="./icons/copilot.svg" alt="" />
+                </div>
+            </div>
+            <!-- chat gpt -->
+            <div class="icons icon-chatgpt">
+                <div class="all-title chatgpt-tab">
+                    <div class="gpt-title">
+                        <p>ChatGPT</p>
                     </div>
+                </div>
+                <div class="chatgpt-img">
+                    <img src="./icons/chatgpt.svg" alt="" />
+                </div>
+            </div>
+            <!-- edge browser-->
+            <div class="icons icon-edge">
+                <div class="all-title edge-tab">
+                    <div class="edge-title">
+                        <p>Edge</p>
+                    </div>
+                </div>
+                <div class="edge-img">
+                    <img src="./icons/edge.svg" alt="" />
+                </div>
+            </div>
+            <!-- brave browser-->
+            <div class="icons icon-brave">
+                <div class="all-title brave-tab">
+                    <div class="brave-title">
+                        <p>Brave</p>
+                    </div>
+                </div>
+                <div class="brave-img">
+                    <img src="./icons/brave.svg" alt="" />
+                </div>
+            </div>
+            <!-- vs code -->
+            <div class="icons icon-vscode">
+                <div class="all-title vscode-tab">
+                    <div class="vscode-title">
+                        <p>VS Code</p>
+                    </div>
+                </div>
+                <div class="vscode-img">
+                    <img src="./icons/vscode.svg" alt="" />
+                </div>
+            </div>
+            <!-- file explorer -->
+            <div class="icons icon-fileexplore">
+                <div class="all-title fileexplore-tab">
+                    <div class="fileexplore-title">
+                        <p>File Explore</p>
+                    </div>
+                </div>
+                <div class="explore-img">
+                    <img src="./icons/fileexplore.png" alt="" />
                 </div>
             </div>
         </div>
 
+        <!-- date/indicators (right)-->
+        <div class="task-tools">
+            <div class="up-arrow">
+                <i class="ri-arrow-up-s-line"></i>
+            </div>
+
+            <!-- keyboard -->
+            <div class="keyboard">
+                <i class="ri-keyboard-line"></i>
+            </div>
+            <!-- language -->
+            <div class="language">
+                <h2>ENG</h2>
+                <h2>IN</h2>
+            </div>
+            <!-- wifi/sound/battery -->
+            <div class="wsb">
+                <div class="wsb-status">
+                    <!-- <div class="wifi-status"><p></p></div> -->
+                    <div class="volume-status">
+                        <p></p>
+                    </div>
+                    <div class="battery-status">
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="wsb-tools">
+                    <div id="wifi-icon"><i class="ri-wifi-line"></i></div>
+                    <div id="volume-icon"><i class="ri-volume-up-line"></i></div>
+                    <div id="battery-icon"></div>
+                </div>
+            </div>
+            <!-- time/date -->
+            <div class="time-date">
+                <!-- time -->
+                <div class="time-ampm">
+                    <div class="time">
+                        <h2>00:00</h2>
+                    </div>
+                    <div class="ampm">
+                        <h2>AM</h2>
+                    </div>
+                </div>
+                <!-- date -->
+                <div class="date">
+                    <h2>00-00-0000</h2>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

@@ -774,12 +774,14 @@ function theme() {
   const themeIcon = document.getElementById("themeIcon");
   const root = document.documentElement;
   let chatgpt = document.querySelector(".task-icon .icon-chatgpt img");
+  let gpt = document.querySelectorAll(".chatGptTab img")
 
   let flag = 0;
 
   themeIcon.addEventListener("click", () => {
     if (flag === 0) {
       // Light Theme
+      gpt.style.filter = "brightness(1) invert(0)";
       chatgpt.style.filter = "brightness(1) invert(0)";
       themeIcon.className = "ri-moon-line";
       root.style.setProperty("--wallpaperbg", "#85aeca");
@@ -795,6 +797,7 @@ function theme() {
       flag = 1;
     } else if (flag === 1) {
       // Custom Theme
+      gpt.style.filter = "brightness(0) invert(1)";
       chatgpt.style.filter = "brightness(0) invert(1)";
       themeIcon.className = "ri-t-shirt-line";
       root.style.setProperty("--wallpaperbg", "rgb(19, 70, 141)");

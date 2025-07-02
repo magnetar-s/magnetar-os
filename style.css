@@ -1894,15 +1894,17 @@ body {
   border: none;
 }
 
+/* //////////////////////////////////////////////////////////////////////// */
 /* vs code tab */
 .vsCodeTab {
+  display: none;
   position: absolute;
   /* top: 160%; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 1000;
   background-color: var(--background);
   transition: all ease-in-out 0.4s;
@@ -2019,7 +2021,7 @@ body {
   transform: scaleX(-1);
 }
 
-/* vs code right section///////////////////////////////// */
+/* vs code right header section///////////////////////////////// */
 .vsCodeTab .vsRightHeader {
   display: flex;
   align-items: center;
@@ -2052,7 +2054,13 @@ body {
   color: var(--secondaryText);
 }
 
-/* vs code file section */
+/* vs body section ///////////////////////////// */
+.vsCodeTab .vsBody {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+/* vs code file section //////////////////////////////////////////// */
 .vsCodeTab .vsFileSec {
   width: 270px;
   height: 100%;
@@ -2073,7 +2081,7 @@ body {
 
 .vsCodeTab .vsFileSec .vsFiles i {
   font-size: 25px;
-  padding: 10px;
+  padding: 12px 10px;
   color: var(--disabled);
 }
 
@@ -2090,6 +2098,7 @@ body {
 
 .vsCodeTab .vsFileSec .vsFiles .workFiles #file {
   background-color: var(--border);
+  color: var(--accent);
 }
 
 .vsCodeTab .vsFileSec .vsFiles .vsAdmin {
@@ -2100,7 +2109,7 @@ body {
   margin-bottom: 110px;
 }
 
-/* vs footer */
+/* vs footer /////////////////////////////////////////////////////*/
 .vsCodeTab .vsFooter {
   position: absolute;
   bottom: 47px;
@@ -2169,4 +2178,493 @@ body {
 
 .vsCodeTab .vsFooter .rightFooter .goLive p {
   font-size: 12px;
+}
+
+/* vertical line */
+.vsCodeTab .vsFileSec .verticalLine {
+  width: 1px;
+  height: 100%;
+  background-color: var(--surface);
+}
+
+/* horizontal line */
+.vsCodeTab .vsFileSec .horizontalLine {
+  height: 1px;
+  width: 100%;
+  margin: 5px 0;
+  background-color: var(--surface);
+}
+
+/* vs code work section //////////////////////////////////////////*/
+.vsCodeTab .vsFileSec .vsExploreSec {
+  width: 100%;
+  height: 100%;
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .exploreHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+
+  color: var(--disabled);
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .exploreHead p {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .vsNewFolder {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .vsNewFolder p {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .vsNewFolder i {
+  color: var(--disabled);
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .vsOutliner {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .vsOutliner p {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .vsOutliner i {
+  color: var(--disabled);
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .vsTimeLine {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .vsTimeLine p {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.vsCodeTab .vsFileSec .vsExploreSec .vsTimeLine i {
+  color: var(--disabled);
+}
+
+/* vs code work section ////////////////////////////////////////// */
+.vsCodeTab .vsWorkSection {
+  width: 100%;
+  height: 100%;
+}
+.vsCodeTab .vsWorkSection .workHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 33px;
+  background-color: var(--border);
+}
+
+.vsCodeTab .vsWorkSection .workHead .vsFileName {
+  display: flex;
+  align-items: center;
+  width: 120px;
+  height: 100%;
+  gap: 5px;
+  padding: 0 10px;
+  background-color: var(--surface);
+  border-right: 1px solid var(--accent);
+}
+
+.vsCodeTab .vsWorkSection .workHead .vsFileName img {
+  width: 20px;
+}
+
+.vsCodeTab .vsWorkSection .workHead .vsFileName p {
+  font-size: 12px;
+}
+
+.vsCodeTab .vsWorkSection .workHead .vsFileName i {
+  font-size: 12px;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.vsCodeTab .vsWorkSection .workHead .vsFileName i:hover {
+  background-color: var(--background);
+}
+
+/*  horizontalLine ////////////////////////////////////*/
+.vsCodeTab .vsWorkSection .horizontalLine {
+  width: 100%;
+  height: 1px;
+  background-color: var(--black);
+}
+
+.vsCodeTab .vsWorkSection .otherTools {
+  margin-right: 11px;
+}
+
+.vsCodeTab .vsWorkSection .otherTools i {
+  padding: 3px;
+  border-radius: 3px;
+  color: var(--secondaryText);
+}
+
+.vsCodeTab .vsWorkSection .otherTools i:hover {
+  background-color: var(--background);
+}
+
+.vsCodeTab .vsWorkSection .codeSpace {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+  height: 80%;
+}
+
+.vsCodeTab .vsWorkSection .codeSpace textarea {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: var(--background);
+  color: var(--primaryText);
+  padding: 5px;
+}
+
+/* brave browser//////////////////////////////////////////////////////////// */
+.braveBrowser {
+  display: none;
+  position: absolute;
+  /* top: 160%; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: var(--background);
+  transition: all ease-in-out 0.4s;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 10px var(--black);
+}
+
+/* .braveBrowser.show {
+  top: 50%;
+} */
+
+/* brave header */
+.braveBrowser .braveHeader {
+  background-color: #1a1a51;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 43px;
+  padding-left: 10px;
+}
+
+.braveBrowser .braveHeader .newTab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 8px;
+  gap: 5px;
+  border-radius: 5px;
+  background-color: #323fa6;
+}
+
+.braveBrowser .braveHeader .newTab h2 {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.braveBrowser .braveHeader .newTab i {
+  font-size: 12px;
+  border-radius: 50px;
+  padding: 3px;
+}
+
+.braveBrowser .braveHeader .newTab i:hover {
+  background-color: #65a8de;
+}
+
+.braveBrowser .braveHeader .closeBrowser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.braveBrowser .braveHeader .closeBrowser i {
+  padding: 11px 15px;
+}
+
+.braveBrowser .braveHeader .closeBrowser i:hover {
+  background-color: var(--surface);
+}
+
+.braveBrowser .braveHeader .closeBrowser #close:hover {
+  background-color: var(--close);
+}
+
+/* search input */
+.braveBrowser .braveSearch {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  background-color: #313ea4;
+  padding: 10px;
+}
+
+.braveBrowser .braveSearch i {
+  font-size: 21px;
+  padding: 3px;
+  color: var(--secondaryText);
+  border-radius: 8px;
+}
+
+.braveBrowser .braveSearch i:hover {
+  background-color: #171c4b;
+}
+
+.braveBrowser .braveSearch i:active {
+  background-color: #131386;
+}
+
+/* search input */
+.braveBrowser .braveSearch .searchInput {
+  display: flex;
+  height: 35px;
+  width: 600px;
+
+  border: 1px solid var(--disabled);
+  border-radius: 8px;
+}
+
+.braveBrowser .braveSearch .searchInput input {
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  background-color: #2b3374;
+  color: var(--primaryText);
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+
+.braveBrowser .braveSearch .searchInput input::placeholder {
+  color: var(--primaryText);
+}
+
+.braveBrowser .braveSearch .searchInput img {
+  padding: 3px 6px;
+  transition: all ease 0.3s;
+}
+
+.braveBrowser .braveSearch .searchInput img:active {
+  scale: 0.8;
+}
+
+.braveBrowser .braveLine {
+  width: 100%;
+  height: 1px;
+  background-color: #5d68b8;
+}
+
+.braveBrowser #browserFrame {
+  width: 100%;
+  height: 100%;
+  background-image: url("./background/pubg-mobile-venom-5120x2880-19315.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////// */
+/* chat gpt */
+.chatGptTab {
+  /* display: none; */
+  position: absolute;
+  /* top: 160%; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: var(--background);
+  transition: all ease-in-out 0.4s;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 10px var(--black);
+}
+
+/* .braveBrowser.show {
+  top: 50%;
+} */
+
+/* chat gpt header */
+.chatGptTab .gptHeader {
+  background-color: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.chatGptTab .gptHeader .gptIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.chatGptTab .gptHeader .gptIcon img {
+  width: 23px;
+  color: var(--secondaryText);
+  filter: brightness(0) invert(1);
+}
+
+.chatGptTab .gptHeader .gptIcon p {
+  font-size: 12px;
+}
+
+.chatGptTab .gptHeader .closeGpt {
+  display: flex;
+  align-items: center;
+}
+
+.chatGptTab .gptHeader .closeGpt i {
+  padding: 6px 10px;
+}
+
+.chatGptTab .gptHeader .closeGpt i:hover {
+  background-color: var(--border);
+}
+
+.chatGptTab .gptHeader .closeGpt #close:hover {
+  background-color: var(--close);
+}
+
+.chatGptTab .gptLine {
+  width: 100%;
+  height: 1px;
+  background-color: var(--disabled);
+}
+
+/* chat gpt work space//////////////////////////////////////////////////////////// */
+.chatGptTab .gptWorkSpace {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+  height: 100%;
+}
+
+.chatGptTab .gptTools {
+  width: 45px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  color: var(--secondaryText);
+  gap: 10px;
+}
+
+.chatGptTab .gptTools img {
+  width: 36px;
+  color: var(--secondaryText);
+  filter: brightness(0) invert(1);
+  padding: 5px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.chatGptTab .gptTools i {
+  font-size: 18px;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.chatGptTab .gptTools i:hover {
+  background-color: var(--border);
+}
+
+.chatGptTab .gptWorkSpace .gptLine {
+  width: 1px;
+  height: 100%;
+  background-color: var(--border);
+}
+
+.chatGptTab .gptWorkSpace .chatContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.chatGptTab .gptWorkSpace .chatContainer .getPlus {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  background-color: #5d68b8;
+  border-radius: 50px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  gap: 5px;
+}
+
+.chatGptTab .gptWorkSpace .chatContainer .getPlus h2 {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.chatGptTab .gptWorkSpace .chatContainer .askGpt {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  width: 900px;
+  height: 500px;
+  border-radius: 50px;
+  background-color: var(--surface);
+}
+
+.chatGptTab .gptWorkSpace .chatContainer .askGpt .chatBox {
+  width: 850px;
+  height: 400px;
+  margin-top: 25px;
+  padding: 10px 20px;
+}
+
+.chatGptTab .gptWorkSpace .chatContainer .askGpt input {
+  width: 850px;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  padding: 0 20px;
+  color: var(--primaryText);
+  background-color: var(--border);
 }
