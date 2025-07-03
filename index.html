@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./favicon/my_icon.jpg">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <!-- cloud /date /time -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -18,6 +19,9 @@
     <!-- shoutdown video -->
     <video id="shoutdown" autoplay muted src="./background/shout down.mp4"></video>
 
+    <!-- brightness -->
+    <div id="brightness"></div>
+
     <!-- desk top main screen -->
     <div class="desktop-screen">
 
@@ -30,6 +34,31 @@
         </video>
         <!-- music/audio -->
         <audio id="player" src="./song/Kal Ho Naa Ho - Shahrukh Khan.mp3" controls></audio>
+
+        <!-- ////////////////////////////////////////////////////////////// -->
+        <!-- this pc main screen-->
+        <div class="mainScreen">
+            <div class="deskTop-apps" id="desktop-thispc">
+                <img src="./icons/thispc.png" alt="thispc">
+                <span>This PC</span>
+            </div>
+            <div class="deskTop-apps" id="desktop-shey">
+                <a class="link" href="https://www.sheryians.com/">
+                    <img src="https://ik.imagekit.io/sheryians/Sheryians_logo_EzwgcppnD" alt="sheryians">
+                    <span>Sheryians Coding School</span>
+                </a>
+            </div>
+
+            <div class="deskTop-apps" id="desktop-terminal">
+                <img src="./icons/terminal.png" alt="terminal">
+                <span>Terminal</span>
+            </div>
+            <div class="deskTop-apps" id="desktop-terminal">
+                <img src="./icons/recycle-bin.png" alt="recycle">
+                <span>Recycle Bin</span>
+            </div>
+        </div>
+        <!-- ////////////////////////////////////////////////////////////// -->
 
         <!-- ////////////////////////////////////////////////////////////// -->
         <!-- desktop custom context menu -->
@@ -93,86 +122,90 @@
                     <i class="ri-search-2-line"></i>
                     <input type="text" placeholder="Search for app, settings, and documents" />
                 </div>
-                <!-- pinned ttitle -->
-                <div class="pin-text">
-                    <h2>Pinned</h2>
-                    <div class="pin-all">
-                        <p>All</p>
-                        <i class="ri-arrow-right-s-line"></i>
-                    </div>
-                </div>
-                <!-- pinned all apps -->
-                <div class="pinned-allapps">
-                    <div class="apps app-edge">
-                        <img src="./icons/edge.svg" alt="">
-                        <span>Edge</span>
-                    </div>
-                    <div class="apps app-photos">
-                        <img src="./icons/photos.svg" alt="">
-                        <span>Photos</span>
-                    </div>
-                    <div class="apps app-setting">
-                        <img src="./icons/setting.svg" alt="">
-                        <span>Setting</span>
-                    </div>
-                    <div class="apps app-calculator">
-                        <img src="./icons/calcy.png" alt="">
-                        <span>Calculator</span>
-                    </div>
-                    <div class="apps app-clock">
-                        <img src="./icons/clock.png" alt="">
-                        <span>clock</span>
-                    </div>
-                    <div class="apps app-notepad">
-                        <img src="./icons/notepad.png" alt="">
-                        <span>Notepad</span>
-                    </div>
-                    <div class="apps app-paint">
-                        <img src="./icons/paint.svg" alt="">
-                        <span>Paint</span>
-                    </div>
-                    <div class="apps app-explore">
-                        <img src="./icons/fileexplore.png" alt="">
-                        <span>File Explorer</span>
-                    </div>
-                    <div class="apps app-film&tv">
-                        <img src="./icons/film&tv.svg" alt="">
-                        <span>Film $ TV</span>
-                    </div>
-                    <div class="apps app-store">
-                        <img src="./icons/microsoftstore.svg" alt="">
-                        <span>Microsoft Store</span>
-                    </div>
-                </div>
-                <!-- recommended -->
-                <div class="recommend-text">
-                    <h2>Recommended</h2>
-                    <div class="pin-all">
-                        <p>More</p>
-                        <i class="ri-arrow-right-s-line"></i>
-                    </div>
-                </div>
-                <!-- recommended apps -->
-                <div class="recommend-apps">
-                    <div class="apps app-forza">
-                        <img src="./icons/insta.svg" alt="">
-                        <div class="apps-content">
-                            <span>Instagram</span>
-                            <small>Recently added</small>
+                <div class="pinnedSec">
+                    <!-- pinned ttitle -->
+                    <div class="pin-text">
+                        <h2>Pinned</h2>
+                        <div class="pin-all">
+                            <p>All</p>
+                            <i class="ri-arrow-right-s-line"></i>
                         </div>
                     </div>
-                    <div class="apps app-yotube">
-                        <img src="./icons/youtube.svg" alt="">
-                        <div class="apps-content">
-                            <span>YouTube</span>
-                            <small>Frequently used app</small>
+                    <!-- pinned all apps -->
+                    <div class="pinned-allapps">
+                        <div class="apps app-edge">
+                            <img src="./icons/edge.svg" alt="">
+                            <span>Edge</span>
+                        </div>
+                        <div class="apps app-photos">
+                            <img src="./icons/photos.svg" alt="">
+                            <span>Photos</span>
+                        </div>
+                        <div class="apps app-setting">
+                            <img src="./icons/setting.svg" alt="">
+                            <span>Setting</span>
+                        </div>
+                        <div class="apps app-calculator">
+                            <img src="./icons/calcy.png" alt="">
+                            <span>Calculator</span>
+                        </div>
+                        <div class="apps app-clock">
+                            <img src="./icons/clock.png" alt="">
+                            <span>clock</span>
+                        </div>
+                        <div class="apps app-notepad">
+                            <img src="./icons/notepad.png" alt="">
+                            <span>Notepad</span>
+                        </div>
+                        <div class="apps app-paint">
+                            <img src="./icons/paint.svg" alt="">
+                            <span>Paint</span>
+                        </div>
+                        <div class="apps app-explore">
+                            <img src="./icons/fileexplore.png" alt="">
+                            <span>File Explorer</span>
+                        </div>
+                        <div class="apps app-film&tv">
+                            <img src="./icons/film&tv.svg" alt="">
+                            <span>Film $ TV</span>
+                        </div>
+                        <div class="apps app-store">
+                            <img src="./icons/microsoftstore.svg" alt="">
+                            <span>Microsoft Store</span>
                         </div>
                     </div>
-                    <div class="apps app-vscode">
-                        <img src="./icons/vscode.svg" alt="">
-                        <div class="apps-content">
-                            <span>VS Code</span>
-                            <small>Frequently used app</small>
+                </div>
+                <div class="recommendSec">
+                    <!-- recommended -->
+                    <div class="recommend-text">
+                        <h2>Recommended</h2>
+                        <div class="pin-all">
+                            <p>More</p>
+                            <i class="ri-arrow-right-s-line"></i>
+                        </div>
+                    </div>
+                    <!-- recommended apps -->
+                    <div class="recommend-apps">
+                        <div class="apps app-forza">
+                            <img src="./icons/insta.svg" alt="">
+                            <div class="apps-content">
+                                <span>Instagram</span>
+                                <small>Recently added</small>
+                            </div>
+                        </div>
+                        <div class="apps app-yotube">
+                            <img src="./icons/youtube.svg" alt="">
+                            <div class="apps-content">
+                                <span>YouTube</span>
+                                <small>Frequently used app</small>
+                            </div>
+                        </div>
+                        <div class="apps app-vscode">
+                            <img src="https://ik.imagekit.io/sheryians/Sheryians_logo_EzwgcppnD" alt="">
+                            <div class="apps-content">
+                                <span>Sheryians Coding School</span>
+                                <small>Frequently used app</small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,10 +271,79 @@
             </div>
         </div>
 
+        <!-- //////////////////////////////////////////////////////////////// -->
+        <div class="wsbStatus">
+            <div class="connects">
+
+                <div class="wifi connectsTools">
+                    <div class="icons">
+                        <i class="ri-wifi-line"></i>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+                    <span>WIIFI</span>
+                </div>
+                <div class="bluetooth connectsTools">
+                    <div class="icons">
+                        <i class="ri-bluetooth-line"></i>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+                    <span>Bluetooth</span>
+                </div>
+                <div class="hotspot connectsTools">
+                    <div class="icons">
+                        <i class="ri-base-station-line"></i>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+                    <span>Hotspot</span>
+                </div>
+                <div class="nearbysharing connectsTools">
+                    <div class="icons">
+                        <i class="ri-share-forward-box-line"></i>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+                    <span>Nearby Sharing</span>
+                </div>
+                <div class="cast connectsTools">
+                    <div class="icons">
+                        <i class="ri-cast-line"></i>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+                    <span>Cast</span>
+                </div>
+
+            </div>
+
+            <!-- ^^^^^^^^^^^^^^^^^^^^^^^^ -->
+            <div class="line"></div>
+            <!-- ^^^^^^^^^^^^^^^^^^^^^^^^ -->
+            <div class="control">
+
+                <div class="brightness">
+                    <i class="ri-sun-line"></i>
+                    <input type="range" id="opacitySlider" min="0" max="0.8" step="0.01" value="0">
+                </div>
+                <div class="volume">
+                    <i class="ri-volume-up-line"></i>
+                    <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value=".5">
+                </div>
+            </div>
+
+            <!-- ^^^^^^^^^^^^^^^^^^^^^^^^ -->
+            <div class="batteryStatus">
+
+                <div class="battery">
+                    <i class="ri-battery-low-line"></i>
+                    <span>70%</span>
+                </div>
+                <i class="ri-settings-4-line"></i>
+
+            </div>
+        </div>
+
         <!-- ////////////////////////////////////////////////////////////////// -->
         <!-- open this pc / file explorer -->
-        <div class="window desk-file" id="folderWindow">
-            <div class="window-header">
+        <div class="windowApps desk-file" id="folderWindow">
+            <div class="window-header" id="window-header">
                 <div id="fileName">
                     <img src="./icons/thispc.png" alt="">
                     <span>This PC</span>
@@ -250,7 +352,7 @@
 
                 <div id="btns">
                     <button>
-                        <i id="sub" class="ri-subtract-line"></i>
+                        <i class="ri-subtract-line"></i>
                     </button>
                     <button>
                         <i id="multySize" class="ri-checkbox-multiple-blank-line"></i>
@@ -426,11 +528,19 @@
                     </div>
                 </div>
             </div>
+
+            <div id="explorerFooter">
+                <p>2 items |</p>
+                <div class="footerIcon">
+                    <i class="ri-file-list-line"></i>
+                    <i class="ri-macbook-line"></i>
+                </div>
+            </div>
         </div>
 
         <!-- ////////////////////////////////////////////////////////////////////// -->
         <!-- vs code tab -->
-        <div class="vsCodeTab">
+        <div class="windowApps vsCodeTab">
             <div class="vsHeader">
                 <div class="vsLeftHeader">
                     <img src="./icons/vscode.svg" alt="vs-ode">
@@ -470,7 +580,7 @@
 
                     <div class="vsClose">
                         <i class="ri-subtract-line"></i>
-                        <i class="ri-checkbox-multiple-blank-line"></i>
+                        <i id="vsResize" class="ri-checkbox-multiple-blank-line"></i>
                         <i id="vsCloseBtn" class="ri-close-large-line"></i>
                     </div>
 
@@ -577,7 +687,7 @@
 
         <!-- //////////////////////////////////////////////////////////////////////////// -->
         <!-- brave browser -->
-        <div class="braveBrowser">
+        <div class="windowApps braveBrowser">
             <div class="braveHeader">
                 <div class="newTab">
                     <h2>New Tab</h2>
@@ -586,8 +696,8 @@
 
                 <div class="closeBrowser">
                     <i class="ri-subtract-line"></i>
-                    <i class="ri-file-copy-line"></i>
-                    <i id="close" class="ri-close-large-line"></i>
+                    <i id="braveResize" class="ri-file-copy-line"></i>
+                    <i id="braveCloseBtn" class="ri-close-large-line"></i>
                 </div>
             </div>
 
@@ -599,8 +709,9 @@
                 </div>
 
                 <div class="searchInput">
-                    <input type="text" id="urlInput" placeholder="Search Sher or typr a URL" />
-                    <img src="./icons/brave.svg" alt="">
+                    <input type="text" id="urlInput"
+                        placeholder="Search Brave or typr a URL  [enter- opens in new tab] | [click- icon opens here]" />
+                    <img id="braveImg" src="./icons/brave.svg" alt="">
                 </div>
 
                 <div class="menuMre">
@@ -612,12 +723,14 @@
 
             <div class="braveLine"></div>
 
-            <iframe id="browserFrame" src="" frameborder="0"></iframe>
+            <div class="braveResult">
+                <iframe id="browserFrame" src="" frameborder="0"></iframe>
+            </div>
         </div>
 
         <!-- //////////////////////////////////////////////////////////////////////////// -->
         <!-- chat gpt -->
-        <div class="chatGptTab">
+        <div class="windowApps chatGptTab">
             <div class="gptHeader">
                 <div class="gptIcon">
                     <img src="./icons/chatgpt.svg" alt="chatGPT">
@@ -626,8 +739,8 @@
 
                 <div class="closeGpt">
                     <i class="ri-subtract-line"></i>
-                    <i class="ri-file-copy-line"></i>
-                    <i id="close" class="ri-close-large-line"></i>
+                    <i id="gptResize" class="ri-file-copy-line"></i>
+                    <i id="gptCloseBtn" class="ri-close-large-line"></i>
                 </div>
             </div>
 
@@ -650,44 +763,17 @@
                     </div>
                     <div class="askGpt">
                         <div class="chatBox" id="chatBox"></div>
-                        <input type="text" id="userInput" placeholder="Ask me anything..." />
+                        <input class="input" type="text" id="userInput" placeholder="Ask me anything..." />
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- ////////////////////////////////////////////////////////////// -->
-        <!-- this pc main screen-->
-        <div class="mainScreen">
-            <div class="deskTop-apps" id="desktop-thispc">
-                <img src="./icons/thispc.png" alt="thispc">
-                <span>This PC</span>
-            </div>
-            <div class="deskTop-apps" id="desktop-shey">
-                <a class="link" href="https://www.sheryians.com/">
-                    <img src="https://ik.imagekit.io/sheryians/Sheryians_logo_EzwgcppnD" alt="sheryians">
-                    <span>Sheryians Coding School</span>
-                </a>
-            </div>
-
-            <div class="deskTop-apps" id="desktop-terminal">
-                <img src="./icons/terminal.png" alt="terminal">
-                <span>Terminal</span>
-            </div>
-            <div class="deskTop-apps" id="desktop-terminal">
-                <img src="./icons/recycle-bin.png" alt="recycle">
-                <span>Recycle Bin</span>
-            </div>
-        </div>
-        <!-- ////////////////////////////////////////////////////////////// -->
-
-        <!-- //////////////////////////////////////////////////////////// -->
-        <!-- taskbar -->
-
-
-        <!--  -->
     </div>
+
+    <!-- //////////////////////////////////////////////////////////// -->
+    <!-- taskbar -->
     <div class="taskbar">
         <!-- weather (left)-->
         <div class="task-weather">
@@ -727,7 +813,7 @@
                 </div>
             </div>
             <!-- copilot -->
-            <div class="icons icon-copilot">
+            <!-- <div class="icons icon-copilot">
                 <div class="all-title copilot-tab">
                     <div class="copilot-title">
                         <p>Copilot</p>
@@ -736,7 +822,7 @@
                 <div class="copilot-img">
                     <img src="./icons/copilot.svg" alt="" />
                 </div>
-            </div>
+            </div> -->
             <!-- chat gpt -->
             <div class="icons icon-chatgpt">
                 <div class="all-title chatgpt-tab">
@@ -749,7 +835,7 @@
                 </div>
             </div>
             <!-- edge browser-->
-            <div class="icons icon-edge">
+            <!-- <div class="icons icon-edge">
                 <div class="all-title edge-tab">
                     <div class="edge-title">
                         <p>Edge</p>
@@ -758,7 +844,7 @@
                 <div class="edge-img">
                     <img src="./icons/edge.svg" alt="" />
                 </div>
-            </div>
+            </div> -->
             <!-- brave browser-->
             <div class="icons icon-brave">
                 <div class="all-title brave-tab">

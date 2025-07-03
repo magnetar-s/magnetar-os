@@ -38,6 +38,10 @@ body {
   cursor: default;
 }
 
+windowApps {
+  position: absolute;
+}
+
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 /* background-video */
 #backgroundVideo {
@@ -45,6 +49,26 @@ body {
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+}
+
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+/* brightness */
+#brightness {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+input[type="range"]#opacitySlider {
+  direction: rtl;
+  transform: rotateX(180deg);
+  z-index: 10050;
 }
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
@@ -76,8 +100,9 @@ body {
 /* music player */
 #player {
   position: absolute;
-  bottom: 180px;
+  bottom: 500px;
   right: 0;
+  z-index: 9999;
 }
 
 .rename-input {
@@ -212,7 +237,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 94%;
   background-color: var(--wallpaperbg);
   color: var(--primaryText);
   overflow: hidden;
@@ -485,7 +510,7 @@ body {
 }
 
 /* edge title */
-.task-icon .icon-edge .edge-tab .edge-title p {
+/* .task-icon .icon-edge .edge-tab .edge-title p {
   pointer-events: none;
   color: var(--primaryText);
   position: absolute;
@@ -509,7 +534,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   opacity: 0;
-}
+} */
 
 /* brave title */
 .task-icon .icon-brave .brave-tab .brave-title p {
@@ -852,7 +877,7 @@ body {
   position: absolute;
   bottom: -750px;
   width: 40rem;
-  height: 45rem;
+  height: 42rem;
   display: flex;
   align-items: start;
   justify-content: start;
@@ -871,13 +896,13 @@ body {
 }
 
 .opentab.open {
-  bottom: 59px;
+  bottom: 15px;
 }
 
 /* upper section */
 .opentab .upper-section {
   width: 100%;
-  height: 655px;
+  height: 610px;
   padding: 30px;
   background-color: var(--surface);
 }
@@ -959,7 +984,7 @@ body {
 /* upper section pinned all apps */
 .opentab .upper-section .pinned-allapps {
   width: 100%;
-  height: 340px;
+  /* height: 285px; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
   grid-auto-rows: 100px;
@@ -1001,12 +1026,19 @@ body {
 }
 
 /* recommended / more upper section  */
-.opentab .upper-section .recommend-text {
-  padding-top: 15px;
-  padding-bottom: 15px;
+.opentab .recommendSec {
+  position: absolute;
+  bottom: 65px;
+  left: 0;
   padding-left: 30px;
   padding-right: 30px;
-  width: 100%;
+}
+
+.opentab .upper-section .recommend-text {
+  /* padding-top: 15px; */
+  padding-bottom: 15px;
+  /* width: 100%; */
+  margin: 0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1094,12 +1126,15 @@ body {
 /* lower section */
 .opentab .lower-section {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 50px;
   background-color: var(--background);
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 /* admin */
@@ -1200,7 +1235,7 @@ body {
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 /* //////////////////////////////////////////////////////////////////////////////////// */
-/* open folder/file explorer window */
+/* file explorer tab */
 .desk-file {
   position: absolute;
   top: 160%;
@@ -1208,12 +1243,12 @@ body {
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  z-index: 1000;
   background-color: var(--background);
   transition: all ease-in-out 0.4s;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 0 10px var(--black);
+  /* z-index: 1000; */
 }
 
 .desk-file.show {
@@ -1241,12 +1276,7 @@ body {
   padding: 10px 14px;
 }
 
-.window-header #btns #sub:hover {
-  background-color: var(--surface);
-  color: var(--secondaryText);
-}
-
-.window-header #btns #multySize:hover {
+.window-header #btns i:hover {
   background-color: var(--surface);
   color: var(--secondaryText);
 }
@@ -1663,6 +1693,25 @@ body {
   background-color: var(--accent);
 }
 
+/* explorer footer */
+#folderWindow #explorerFooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--surface);
+  width: 100%;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 15px;
+}
+
+#folderWindow #explorerFooter p {
+  font-size: 12px;
+  font-weight: 400;
+}
+
 /* ////////////////////////////////////////////////////////////////////////////////////// */
 
 /* desktop folder/files/apps */
@@ -1735,9 +1784,8 @@ body {
 
 /* notification tab */
 .notifyTab {
-  /* display: none; */
   position: absolute;
-  bottom: 60px;
+  bottom: 12px;
   right: -340px;
   width: 340px;
   height: 400px;
@@ -1897,25 +1945,24 @@ body {
 /* //////////////////////////////////////////////////////////////////////// */
 /* vs code tab */
 .vsCodeTab {
-  display: none;
   position: absolute;
-  /* top: 160%; */
-  top: 50%;
+  top: 160%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  z-index: 1000;
   background-color: var(--background);
   transition: all ease-in-out 0.4s;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 0 10px var(--black);
+  /* z-index: 1000; */
 }
 
-/* .vsCodeTab.show {
+.vsCodeTab.show {
   top: 50%;
-} */
+  pointer-events: auto;
+}
 
 .vsCodeTab .vsHeader {
   background-color: var(--black);
@@ -1944,6 +1991,12 @@ body {
   font-weight: 400;
   padding: 3px 10px;
   border-radius: 5px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.vscode-small .vsHeader .vsLeftHeader span {
+  display: none;
 }
 
 .vsCodeTab .vsHeader .vsLeftHeader span:hover {
@@ -2006,6 +2059,10 @@ body {
   border-radius: 5px;
   color: var(--disabled);
   cursor: pointer;
+}
+
+.vsCodePadding .vsHeader .vsLeftHeader .vsSearch {
+  padding: 3px 100px;
 }
 
 .vsCodeTab .vsHeader .vsLeftHeader .vsSearch:hover {
@@ -2106,20 +2163,20 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 110px;
+  margin-bottom: 70px;
 }
 
 /* vs footer /////////////////////////////////////////////////////*/
 .vsCodeTab .vsFooter {
   position: absolute;
-  bottom: 47px;
+  bottom: 0;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 28px;
-  background-color: var(--black);
+  background-color: var(--surface);
 }
 
 .vsCodeTab .vsFooter .leftFooter {
@@ -2180,6 +2237,7 @@ body {
   font-size: 12px;
 }
 
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 /* vertical line */
 .vsCodeTab .vsFileSec .verticalLine {
   width: 1px;
@@ -2347,25 +2405,26 @@ body {
 
 /* brave browser//////////////////////////////////////////////////////////// */
 .braveBrowser {
-  display: none;
+  /* display: none; */
   position: absolute;
-  /* top: 160%; */
-  top: 50%;
+  top: 160%;
+  /* top: 50%; */
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  z-index: 1000;
   background-color: var(--background);
-  transition: all ease-in-out 0.4s;
+  transition: all 0.4s ease;
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 0 10px var(--black);
+  /* z-index: 1000; */
+  color: white;
 }
 
-/* .braveBrowser.show {
+.braveBrowser.show {
   top: 50%;
-} */
+}
 
 /* brave header */
 .braveBrowser .braveHeader {
@@ -2414,10 +2473,10 @@ body {
 }
 
 .braveBrowser .braveHeader .closeBrowser i:hover {
-  background-color: var(--surface);
+  background-color: #3240a69c;
 }
 
-.braveBrowser .braveHeader .closeBrowser #close:hover {
+.braveBrowser .braveHeader .closeBrowser #braveCloseBtn:hover {
   background-color: var(--close);
 }
 
@@ -2435,7 +2494,7 @@ body {
 .braveBrowser .braveSearch i {
   font-size: 21px;
   padding: 3px;
-  color: var(--secondaryText);
+  color: rgb(162, 162, 162);
   border-radius: 8px;
 }
 
@@ -2452,7 +2511,6 @@ body {
   display: flex;
   height: 35px;
   width: 600px;
-
   border: 1px solid var(--disabled);
   border-radius: 8px;
 }
@@ -2462,14 +2520,15 @@ body {
   height: 100%;
   width: 100%;
   background-color: #2b3374;
-  color: var(--primaryText);
+  color: rgb(162, 162, 162);
   border: none;
   outline: none;
   padding: 10px;
 }
 
 .braveBrowser .braveSearch .searchInput input::placeholder {
-  color: var(--primaryText);
+  color: rgb(162, 162, 162);
+  background-color: #2b3374;
 }
 
 .braveBrowser .braveSearch .searchInput img {
@@ -2487,7 +2546,7 @@ body {
   background-color: #5d68b8;
 }
 
-.braveBrowser #browserFrame {
+.braveBrowser .braveResult {
   width: 100%;
   height: 100%;
   background-image: url("./background/pubg-mobile-venom-5120x2880-19315.jpg");
@@ -2496,18 +2555,21 @@ body {
   background-position: center;
 }
 
+.braveBrowser .braveResult #browserFrame {
+  width: 100%;
+  height: 100%;
+}
+
 /* /////////////////////////////////////////////////////////////////////////////////////// */
 /* chat gpt */
 .chatGptTab {
-  /* display: none; */
   position: absolute;
-  /* top: 160%; */
-  top: 50%;
+  top: 160%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  z-index: 1000;
+  /* z-index: 1000; */
   background-color: var(--background);
   transition: all ease-in-out 0.4s;
   overflow: hidden;
@@ -2515,9 +2577,9 @@ body {
   box-shadow: 0 0 10px var(--black);
 }
 
-/* .braveBrowser.show {
+.chatGptTab.show {
   top: 50%;
-} */
+}
 
 /* chat gpt header */
 .chatGptTab .gptHeader {
@@ -2560,7 +2622,7 @@ body {
   background-color: var(--border);
 }
 
-.chatGptTab .gptHeader .closeGpt #close:hover {
+.chatGptTab .gptHeader .closeGpt #gptCloseBtn:hover {
   background-color: var(--close);
 }
 
@@ -2570,7 +2632,7 @@ body {
   background-color: var(--disabled);
 }
 
-/* chat gpt work space//////////////////////////////////////////////////////////// */
+/* chat gpt work space///////// */
 .chatGptTab .gptWorkSpace {
   display: flex;
   align-items: start;
@@ -2645,20 +2707,26 @@ body {
   align-items: center;
   justify-content: start;
   flex-direction: column;
-  width: 900px;
-  height: 500px;
+  width: 62%;
+  height: 72%;
   border-radius: 50px;
   background-color: var(--surface);
+  overflow: hidden;
 }
 
 .chatGptTab .gptWorkSpace .chatContainer .askGpt .chatBox {
-  width: 850px;
-  height: 400px;
-  margin-top: 25px;
+  width: 90%;
+  height: 72%;
+  border-radius: 25px;
+  margin-top: 35px;
   padding: 10px 20px;
+  /* background-color: blueviolet; */
+  overflow: auto;
 }
 
-.chatGptTab .gptWorkSpace .chatContainer .askGpt input {
+.chatGptTab .gptWorkSpace .chatContainer .askGpt .input {
+  position: absolute;
+  bottom: 90px;
   width: 850px;
   height: 50px;
   border: none;
@@ -2667,4 +2735,128 @@ body {
   padding: 0 20px;
   color: var(--primaryText);
   background-color: var(--border);
+}
+
+/* /////////////////////////////////////////////////////////////////////////////// */
+/* wifi / bluetooth / brightness battery status */
+.wsbStatus {
+  position: absolute;
+  right: 10px;
+  border-radius: 5px;
+  z-index: 9930;
+  transition: all ease 0.5s;
+  bottom: -450px;
+  width: 360px;
+  height: 385px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.wsbStatus.open {
+  bottom: 12px;
+}
+
+/* content^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+.wsbStatus .connects {
+  width: 100%;
+  height: 55%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-wrap: wrap;
+  background-color: var(--surface);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  padding: 20px;
+  gap: 15px;
+}
+
+.wsbStatus .connects .connectsTools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  font-size: 12px;
+  gap: 10px;
+}
+
+.wsbStatus .connects .icons {
+  border-radius: 8px;
+  width: 95px;
+  padding: 15px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  border-top: 2px solid var(--background);
+  border-bottom: 1px solid var(--background);
+  transition: all ease 0.3s;
+}
+
+.wsbStatus .connects .icons:hover {
+  background-color: #02b2f1;
+}
+
+.wsbStatus .connects .icons:active {
+  scale: 0.98;
+}
+
+/* birghtness / volume^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+.wsbStatus .control {
+  background-color: var(--surface);
+  width: 100%;
+  height: 33%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.wsbStatus .control i {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.wsbStatus .control #opacitySlider {
+  width: 240px;
+  height: 5px;
+}
+
+.wsbStatus .batteryStatus {
+  width: 100%;
+  height: 12%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: var(--background);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.wsbStatus .batteryStatus i {
+  font-size: 20px;
+}
+
+.wsbStatus .batteryStatus .battery {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wsbStatus .batteryStatus .battery span {
+  font-size: 12px;
+}
+
+.wsbStatus .line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--disabled);
 }
