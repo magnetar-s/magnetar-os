@@ -33,7 +33,7 @@
             <source src="./background/video.webm" type="video/webm" />
         </video>
         <!-- music/audio -->
-        <audio id="player" src="./song/Kal Ho Naa Ho - Shahrukh Khan.mp3" controls></audio>
+        <!-- <audio id="player" src="./song/Kal Ho Naa Ho - Shahrukh Khan.mp3" controls></audio> -->
 
         <!-- ////////////////////////////////////////////////////////////// -->
         <!-- this pc main screen-->
@@ -323,8 +323,9 @@
                     <input type="range" id="opacitySlider" min="0" max="0.8" step="0.01" value="0">
                 </div>
                 <div class="volume">
-                    <i class="ri-volume-up-line"></i>
-                    <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value=".5">
+                    <!-- <i class="ri-volume-up-line"></i>
+                    <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value=".5"> -->
+                     <audio id="player" src="./song/Mayavi-KannadaMaza.Com.mp3" controls></audio>
                 </div>
             </div>
 
@@ -332,12 +333,19 @@
             <div class="batteryStatus">
 
                 <div class="battery">
-                    <i class="ri-battery-low-line"></i>
-                    <span>70%</span>
+                    <div id="btryIndicator"></div>
+                    <div class="btryPercent">
+                        <span>--%</span>
+                    </div>
                 </div>
                 <i class="ri-settings-4-line"></i>
 
             </div>
+        </div>
+
+        <!-- //////////////////////////////////////////////////////////////// -->
+        <div class="taskBarArrowTab">
+            
         </div>
 
         <!-- ////////////////////////////////////////////////////////////////// -->
@@ -900,10 +908,10 @@
                 <div class="wsb-status">
                     <!-- <div class="wifi-status"><p></p></div> -->
                     <div class="volume-status">
-                        <p></p>
+                        <p>--</p>
                     </div>
                     <div class="battery-status">
-                        <p></p>
+                        <p>--</p>
                     </div>
                 </div>
 

@@ -99,10 +99,11 @@ input[type="range"]#opacitySlider {
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 /* music player */
 #player {
-  position: absolute;
-  bottom: 500px;
-  right: 0;
-  z-index: 9999;
+  /* position: absolute; */
+  /* bottom: 35px; */
+  /* right: 10px; */
+  /* z-index: 9999; */
+  padding-top: 20px;
 }
 
 .rename-input {
@@ -401,6 +402,28 @@ input[type="range"]#opacitySlider {
   filter: brightness(0) invert(1);
 }
 
+.taskbar .task-tools .up-arrow i.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.taskBarArrowTab {
+  position: absolute;
+  bottom: -150px;
+  right: 170px;
+  width: 210px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  transition: all ease 0.3s;
+}
+
+.taskBarArrowTab.open {
+bottom: 10px; 
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
 /* window tab / title */
 .task-icon .icon-window .opentab-title .title p {
   pointer-events: none;
@@ -456,7 +479,7 @@ input[type="range"]#opacitySlider {
 }
 
 /* copilot title */
-.task-icon .icon-copilot .copilot-tab .copilot-title p {
+/* .task-icon .icon-copilot .copilot-tab .copilot-title p {
   pointer-events: none;
   color: var(--primaryText);
   position: absolute;
@@ -480,7 +503,7 @@ input[type="range"]#opacitySlider {
   overflow: hidden;
   text-overflow: ellipsis;
   opacity: 0;
-}
+} */
 
 /* chatgpt title */
 .task-icon .icon-chatgpt .chatgpt-tab .gpt-title p {
@@ -2841,14 +2864,14 @@ input[type="range"]#opacitySlider {
   border-bottom: 1px solid var(--border);
 }
 
-.wsbStatus .batteryStatus i {
-  font-size: 20px;
-}
-
 .wsbStatus .batteryStatus .battery {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
+}
+
+.wsbStatus .batteryStatus .battery #btryIndicator {
+  font-size: 20px;
 }
 
 .wsbStatus .batteryStatus .battery span {
@@ -2860,3 +2883,4 @@ input[type="range"]#opacitySlider {
   height: 1px;
   background-color: var(--disabled);
 }
+

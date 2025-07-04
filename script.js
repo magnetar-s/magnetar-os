@@ -82,7 +82,7 @@ function battery() {
       }
 
       batteryStatus.innerHTML = battery.charging
-        ? `Battery status: (${level}%) remaining`
+        ? `Battery status: ${level}% remaining`
         : `Battery status: ${level}% remaining`;
     }
 
@@ -106,6 +106,39 @@ function battery() {
 }
 battery();
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// batteryIndicate
+function batteryIndicate() {
+  const batryIcon = document.getElementById("btryIndicator");
+  const batryPercent = document.querySelector(
+    ".batteryStatus .battery .btryPercent span"
+  );
+
+  navigator.getBattery().then(function (battery) {
+    function updateAll() {
+      const level = Math.round(battery.level * 100);
+
+      if (battery.charging) {
+        batryIcon.className = "ri-battery-charge-line";
+      } else {
+        if (level >= 80) {
+          batryIcon.className = "ri-battery-fill";
+        } else if (level >= 30) {
+          batryIcon.className = "ri-battery-low-line";
+        } else {
+          batryIcon.className = "ri-battery-line";
+        }
+      }
+
+      batryPercent.innerHTML = battery.charging ? `${level}%` : `${level}%`;
+    }
+
+    updateAll();
+
+    battery.addEventListener("levelchange", updateAll);
+    battery.addEventListener("chargingchange", updateAll);
+  });
+}
+batteryIndicate();
 
 // volume status
 function volumeSystem() {
@@ -1675,7 +1708,7 @@ createNewFile();
 function showNotification() {
   const notifyBtn = document.querySelector(".task-tools .time-date");
   const notifyTab = document.querySelector(".notifyTab");
-  const closeAreas = document.querySelectorAll(".mainScreen, .wsb-tools");
+  const closeAreas = document.querySelectorAll(".mainScreen, .wsb-tools, .task-tools .up-arrow");
 
   notifyBtn.addEventListener("click", () => {
     notifyTab.classList.toggle("open");
@@ -1692,7 +1725,7 @@ showNotification();
 // ////////////////////////////////////////////////////////////////////////////
 // wifi / bluetooth / hotspot etc
 function showWsbStatus() {
-  const closeAreas = document.querySelectorAll(".mainScreen, .time-date");
+  const closeAreas = document.querySelectorAll(".mainScreen, .time-date, .task-tools .up-arrow");
   const wsbStatusTab = document.querySelector(".wsbStatus");
   const wsbStatueBtn = document.querySelector(".wsb .wsb-tools");
 
@@ -1718,5 +1751,29 @@ function brightNess() {
     overlay.style.opacity = slider.value;
   });
 }
-brightNess()
+brightNess();
 
+// ////////////////////////////////////////////////
+// rotate taskbar arrow icon
+const arrow = document.querySelector(".taskbar .task-tools .up-arrow i");
+
+arrow.addEventListener("click", () => {
+  arrow.classList.toggle("rotate");
+});
+
+function taskbarArrowTab() {
+  const closeAreas = document.querySelectorAll(".mainScreen, .time-date, .wsb .wsb-tools");
+  const wsbStatusTab = document.querySelector(".taskBarArrowTab");
+  const wsbStatueBtn = document.querySelector(".task-tools .up-arrow");
+
+  wsbStatueBtn.addEventListener("click", () => {
+    wsbStatusTab.classList.toggle("open");
+  });
+
+  closeAreas.forEach((area) => {
+    area.addEventListener("click", () => {
+      wsbStatusTab.classList.remove("open");
+    });
+  });
+}
+taskbarArrowTab();
